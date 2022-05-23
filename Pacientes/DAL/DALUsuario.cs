@@ -55,5 +55,90 @@ namespace Pacientes.DAL
                 
         }
 
+        public ModeloUsuario GetRegistro(String cpf, String senha)
+        {
+            /*
+            ModeloUsuario obj = new ModeloUsuario();
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = connString.ToString();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            */
+
+            ModeloUsuario obj = new ModeloUsuario();
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            //OracleDataAdapter cmd = new OracleDataAdapter("select * from usuario", con);
+
+            OracleCommand cmd = new OracleCommand();
+            //cmd.BindByName = true;
+            cmd.CommandText = "select * from PACIENTES.USUARIO where cpf =:cpf and senha =:senha";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("cpf", cpf));
+            cmd.Parameters.Add(new OracleParameter("senha", senha));
+
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.cpf = Convert.ToString(registro["cpf"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.email = Convert.ToString(registro["email"]);
+                    obj.senha = Convert.ToString(registro["senha"]);
+
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+
+
+            /*
+                try
+            {
+                cmd.CommandText = "select * from MATHEUS.USUARIO where email=@email and senha=@senha";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@senha", senha);
+                con.Open();
+                SqlDataReader registro = cmd.ExecuteReader();
+
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.email = Convert.ToString(registro["email"]);
+                    obj.senha = Convert.ToString(registro["senha"]);
+
+                }
+            }
+
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+            
+
+            */
+            return obj;
+        }
+
     }
 }
