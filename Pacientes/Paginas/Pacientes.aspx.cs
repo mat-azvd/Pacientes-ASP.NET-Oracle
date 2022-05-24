@@ -25,5 +25,10 @@ namespace Pacientes.Paginas
             ListaPacientes = dal.Listar();
         }
 
+        protected void Inserir_Paciente()
+        {
+
+        }
+
     }
 }
