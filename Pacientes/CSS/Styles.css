@@ -1,0 +1,13 @@
+﻿
+#navigation {
+    width: 80%;
+    height: 10%;
+    margin: auto;
+    padding: 0.6em;
+    background-color: black;
+}
+
+.botoesMenu {
+    color: white;
+    padding: 0.6em;
+}

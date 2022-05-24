@@ -8,9 +8,22 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../CSS/Styles.css" />
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <header id="navigation">
+
+            <nav>
+                <asp:Label ID="labelMenu" runat="server" CssClass="botoesMenu">Lista</asp:Label>                
+                <asp:HyperLink ID="h1Pacientes" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Produtos.aspx">Pacientes</asp:HyperLink>
+                <asp:HyperLink ID="h1Usuarios" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Produtos.aspx">Usuarios</asp:HyperLink>
+                <asp:HyperLink ID="h1Sair" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Login.aspx">Sair</asp:HyperLink>
+            </nav>
+
+        </header>
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

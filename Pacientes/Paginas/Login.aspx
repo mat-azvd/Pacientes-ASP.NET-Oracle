@@ -19,7 +19,7 @@
     <form id="form1" runat="server">
         <div id="DIV_PRINCIPAl">
         <asp:Panel runat="server" ID="Panel_Principal">          
-                <asp:label runat="server">Faça o Login </asp:label>
+                <asp:label runat="server">Faça seu Login </asp:label>
                 <asp:TextBox runat="server" ID="TextCpf"  placeholder="CPF" ></asp:TextBox>
                 <asp:TextBox runat="server" ID="TextSenha"  placeholder="Senha"></asp:TextBox>
                 <asp:Button runat="server" ID="btEntrar" CssClass="botaoStyle" Text="Entrar" OnClick="btEntrar_Click" />
