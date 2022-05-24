@@ -67,7 +67,7 @@ namespace Pacientes.DAL
 
         }
 
-        public DataTable Listar()
+        /*public DataTable Listar()
         {
             DataTable tabela = new DataTable();
 
@@ -86,6 +86,47 @@ namespace Pacientes.DAL
                 throw new Exception(erro.Message);
             }
 
+        }*/
+
+        
+        public List<ModeloPaciente> Listar()
+        {
+            List<ModeloPaciente> ListaPacientes = new List<ModeloPaciente>();
+          
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.PACIENTES";
+
+            cmd.BindByName = true;
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                while (registro.Read())
+                {
+                    ModeloPaciente obj = new ModeloPaciente();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.cpf = Convert.ToString(registro["cpf"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.email = Convert.ToString(registro["email"]);
+
+                    ListaPacientes.Add(obj);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+            return ListaPacientes;
         }
 
         public ModeloPaciente GetRegistro(String cpf)
