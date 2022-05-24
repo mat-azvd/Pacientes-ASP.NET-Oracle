@@ -22,12 +22,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%foreach (var obj in ListaPacientes) {%>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><%=obj.nome%></td>
+                        <td><%=obj.cpf%></td>
                         <td><button>Detalhes</button></td>
                         <td><button>Excluir</button></td>
                     </tr>
+                    <%} %>
                 </tbody>
             </table>
         </div>
