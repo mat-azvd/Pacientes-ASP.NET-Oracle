@@ -6,8 +6,31 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel runat="server">
-        <div> 
+
+        <div id="titulo">
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>
+
+        <div id="tabela"> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>botao1</th>
+                        <th>botao2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><button>Detalhes</button></td>
+                        <td><button>Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </asp:Panel>
 </asp:Content>
