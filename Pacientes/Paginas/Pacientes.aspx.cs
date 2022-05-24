@@ -25,10 +25,27 @@ namespace Pacientes.Paginas
             ListaPacientes = dal.Listar();
         }
 
-        protected void Inserir_Paciente()
+        /*protected void Button_Modal_inserir(object sender, EventArgs e)
         {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.Append(@"<script language='javascript'>");
+            sb.Append(@"$('#modal-fade').modal('show');");
+            sb.Append(@"</script>");
+
+            ClientScript.RegisterStartupScript(this.GetType(), "JSScript", sb.ToString());
 
         }
+        */
 
+
+        protected void botaoInserir_Click1(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void botaoModalInserir_Abrir(object sender, EventArgs e)
+        {
+            modalInserir.Show();
+        }
     }
 }

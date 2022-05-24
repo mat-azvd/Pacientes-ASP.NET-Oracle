@@ -11,3 +11,23 @@
     color: white;
     padding: 0.6em;
 }
+
+.modalBackground {
+    background-color: black;
+    filter: opacity(90) !important;
+    opacity: 0.6 !important;
+    z-index: 20;
+}
+
+.botaoStyle {
+    border-radius: 5px;
+    background-color: #006FFF;
+    color: white;
+    height: 35px;
+    font-family: 'Segoe UI Emoji';
+    Font-Size: medium;
+    font-weight: 500;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    white-space: nowrap;
+}

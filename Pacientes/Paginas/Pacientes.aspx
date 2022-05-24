@@ -1,18 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/MasterPage.Master" AutoEventWireup="true" CodeBehind="Pacientes.aspx.cs" Inherits="Pacientes.Paginas.Pacientes" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <script src="../Scripts/jquery-3.6.0.intellisense.js"></script>
-    <script src="../Scripts/jquery-3.6.0.js"></script>
-    <script src="../Scripts/jquery-ui.js"></script>
-
-    <script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.min.js"></script>
+    
+    <link href="../CSS/Styles.css" rel="stylesheet" />
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <%--<script>
         $(function () {
             $("#modal-inserir").dialog({
-                
+                autoOpen: false,
                 show: {
                     effect: "blind",
                     duration: 1000
@@ -27,6 +26,7 @@
             });
         });
     </script>
+    --%>
 
     <asp:Panel runat="server">
 
@@ -57,54 +57,74 @@
             </table>
         </div>
         <div>
-            <button id="abrir-modal">Novo Paciente</button>
+            <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
+            <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
         </div>
-
-        <div id="modal-inserir">
-
-            <table>
-
-                <tr>
-                    <td><label>Nome</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>CPF</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Sexo</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Data de Nascimento</label></td>
-                    <td><input type="date" value=""/></td>
-                </tr>
-
-                <tr>                  
-                    <td><label>Rua</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Numero</label></td>
-                    <td><input type="number" value=""/></td>
-                    <td><label>Cidade</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Estado</label></td>
-                    <td><input type="number" value=""/></td>                                      
-                </tr>
-
-                <tr>
-                    <td><label>Complemento</label></td>
-                    <td><input type="text" value=""/></td>
-                </tr>
-
-                <tr>
-                    <td><label>Email</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Estado Civil</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Nome da Mãe</label></td>
-                    <td><input type="text" value=""/></td>
-                    <td><label>Alergias</label></td>
-                    <td><input type="text" value=""/></td>
-                </tr>
-
-            </table>
-
-        </div>
-
     </asp:Panel>
+
+         <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
+         <asp:Panel ID="PanelModalInserir"  runat="server">         
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">                  
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td><label>Nome</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>CPF</label></td>
+                                <td><input type="text" value=""/></td>
+                            </tr>
+                            <tr>
+                                <td><label>Sexo</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>Data de Nascimento</label></td>
+                                <td><input type="date" value=""/></td>
+                            </tr>
+
+                            <tr>                  
+                                <td><label>Rua</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>Numero</label></td>
+                                <td><input type="number" value=""/></td>
+                            </tr>
+                            <tr>
+                                <td><label>Cidade</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>Estado</label></td>
+                                <td><input type="number" value=""/></td>                                      
+                            </tr>
+
+                            <tr>
+                                <td><label>Complemento</label></td>
+                                <td><input type="text" value=""/></td>
+                            </tr>
+
+                            <tr>
+                                <td><label>Email</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>Estado Civil</label></td>
+                                <td><input type="text" value=""/></td>
+                            </tr>
+                            <tr>
+                                <td><label>Nome da Mãe</label></td>
+                                <td><input type="text" value=""/></td>
+                                <td><label>Alergias</label></td>
+                                <td><input type="text" value=""/></td>
+                            </tr>
+
+                        </table>
+                        </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="botaoModalFechar1" CssClass="botaoStyle" runat="server" Text="Fechar" />
+                        <asp:Button ID="botaoInserir" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserir_Click1" />
+                    </div>
+                </div>
+            </div>
+        
+       </asp:Panel> 
+    
 </asp:Content>
