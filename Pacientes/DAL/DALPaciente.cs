@@ -2,10 +2,142 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Pacientes.Modelo;
+using System.Data;
+using System.Data.SqlClient;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Pacientes.DAL
 {
     public class DALPaciente
     {
+
+        private System.Configuration.ConnectionStringSettings connString;
+
+
+        public DALPaciente()
+        {
+
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/MyWebSiteRoot");
+            connString = rootWebConfig.ConnectionStrings.ConnectionStrings["BancoPacientesOracle"];
+
+        }
+
+        public void inserir(ModeloPaciente obj)
+        {
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+
+
+            try
+            {
+
+                cmd.CommandText = "Insert into Pacientes.Pacientes (nome,cpf,sexo,telefone,email,Data_Nascimento,Nome_Mae,Estado_Civil,Rua,Estado,Cidade,Numero,Complemento) values (@nome,@cpf,@sexo,@telefone,@email,@Data_Nascimento,@Nome_Mae,@Estado_Civil,@Rua,@Estado,@Cidade,@Numero,@Complemento)";
+                cmd.Parameters.Add("nome", obj.nome);
+                cmd.Parameters.Add("cpf", obj.cpf);
+                cmd.Parameters.Add("sexo", obj.sexo);
+                cmd.Parameters.Add("telefone", obj.telefone);
+                cmd.Parameters.Add("email", obj.email);
+                cmd.Parameters.Add("Data_Nascimento", obj.Data_Nascimento);
+                cmd.Parameters.Add("Nome_Mae", obj.Nome_Mae);
+                cmd.Parameters.Add("Estado_Civil", obj.Estado_Civil);
+                cmd.Parameters.Add("Rua", obj.Rua);
+                cmd.Parameters.Add("Estado", obj.Estado);
+                cmd.Parameters.Add("Cidade", obj.Cidade);
+                cmd.Parameters.Add("Numero", obj.Numero);
+                cmd.Parameters.Add("Complemento", obj.Complemento);
+
+
+                cmd.Connection = con;
+                con.Open();
+                obj.ID = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        public DataTable Listar()
+        {
+            DataTable tabela = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter("Select * from PACIENTES.PACIENTES", connString.ConnectionString);
+
+            try
+            {
+
+                //Pegar o retorno do comando e preencher a tabela
+                da.Fill(tabela);
+                return tabela;
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+        }
+
+        public ModeloPaciente GetRegistro(String cpf)
+        {
+
+
+            ModeloPaciente obj = new ModeloPaciente();
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.PACIENTES where cpf =:cpf";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("cpf", cpf));
+            
+
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.cpf = Convert.ToString(registro["cpf"]);
+                    obj.sexo = Convert.ToString(registro["sexo"]);
+                    obj.email = Convert.ToString(registro["email"]);
+                    
+
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+
+
+
+            return obj;
+        }
+
     }
 }

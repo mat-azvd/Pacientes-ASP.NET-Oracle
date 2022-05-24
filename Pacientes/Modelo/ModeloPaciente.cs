@@ -16,9 +16,8 @@ namespace Pacientes.Modelo
         public String email { get; set; }    
         public String Data_Nascimento { get; set; }
         public String Nome_Mae { get; set; }
-        public int Alergias { get; set; }
         public String Estado_Civil { get; set; }
-        public String Endereco { get; set; }
+        public String Rua { get; set; }
         public String Estado { get; set; }
         public String Cidade { get; set; }
         public String Numero { get; set; }
