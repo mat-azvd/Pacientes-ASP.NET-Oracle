@@ -3,9 +3,15 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCpf").mask("999.999.999-99");
+        });
+    </script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="../Scripts/bootstrap.min.js"></script>
-    
+    <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <%--<script>
@@ -74,46 +80,56 @@
                         <table>
                             <tr>
                                 <td><label>Nome</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtNome" runat="server"> </asp:TextBox></td>
                                 <td><label>CPF</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="textCpf" runat="server"> </asp:TextBox></td>                           
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><input type="date" value=""/></td>
+                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox></td>  
+                                
                             </tr>
 
                             <tr>                  
                                 <td><label>Rua</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtRua" runat="server"> </asp:TextBox></td>
+                                
                                 <td><label>Numero</label></td>
-                                <td><input type="number" value=""/></td>
+                                <td><asp:TextBox  id="txtNumero" runat="server"> </asp:TextBox></td>
+                                
                             </tr>
                             <tr>
                                 <td><label>Cidade</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtCidade" runat="server"> </asp:TextBox></td>
+                                
                                 <td><label>Estado</label></td>
-                                <td><input type="number" value=""/></td>                                      
+                                <td><asp:TextBox  id="txtEstado" runat="server"> </asp:TextBox></td>
+                                                                    
                             </tr>
 
                             <tr>
                                 <td><label>Complemento</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox></td>
+                                
                             </tr>
 
                             <tr>
                                 <td><label>Email</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtEmail" runat="server"> </asp:TextBox></td>
+                                
                                 <td><label>Estado Civil</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtEstado_civil" runat="server"> </asp:TextBox></td>
+                                
                             </tr>
                             <tr>
                                 <td><label>Nome da Mãe</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox  id="txtNome_mae" runat="server"> </asp:TextBox></td>
+                                
                                 <td><label>Alergias</label></td>
-                                <td><input type="text" value=""/></td>
+                                <td><asp:TextBox id="txtAlergia" runat="server"> </asp:TextBox></td>
+                                
                             </tr>
 
                         </table>
