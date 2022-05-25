@@ -41,19 +41,20 @@ namespace Pacientes.Paginas
         protected void botaoInserir_Click1(object sender, EventArgs e)
         {
             string nome = Convert.ToString(txtNome.Text);
-            string cpf = Convert.ToString(txtNome.Text);
-            string sexo = Convert.ToString(txtNome.Text);
-            string telefone = Convert.ToString(txtNome.Text);
-            string email = Convert.ToString(txtNome.Text);
-            string data_nascimento = Convert.ToString(txtNome.Text);
-            string nome_mae = Convert.ToString(txtNome.Text);
-            string alergias = Convert.ToString(txtNome.Text);
-            string estado_civil = Convert.ToString(txtNome.Text);
-            string rua = Convert.ToString(txtNome.Text);
-            string estado = Convert.ToString(txtNome.Text);
-            string cidade = Convert.ToString(txtNome.Text);
-            string numero = Convert.ToString(txtNome.Text);
-            string complemento = Convert.ToString(txtNome.Text);
+            string cpf = Convert.ToString(txtCpf.Text);
+            string sexo = Convert.ToString(txtSexo.Text);
+            string telefone = Convert.ToString(txtTelefone.Text);
+            string email = Convert.ToString(txtEmail.Text);
+            string data_nascimento = Convert.ToString(txtData_nascimento.Text);
+            string nome_mae = Convert.ToString(txtNome_mae.Text);
+            string alergias = Convert.ToString(txtAlergia.Text);
+            string estado_civil = Convert.ToString(txtEstado_civil.Text);
+            string rua = Convert.ToString(txtRua.Text);
+            string estado = Convert.ToString(txtEstado.Text);
+            string cidade = Convert.ToString(txtCidade.Text);
+            string numero = Convert.ToString(txtNumero.Text);
+            string complemento = Convert.ToString(txtComplemento.Text);
+
         }
 
         protected void botaoModalInserir_Abrir(object sender, EventArgs e)

@@ -7,7 +7,7 @@
     <script src="../Scripts/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
         jQuery(function ($) {
-            $("#textCpf").mask("999.999.999-99");
+            $("#txtCpf").mask("999.999.999-99");
         });
     </script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -82,7 +82,7 @@
                                 <td><label>Nome</label></td>
                                 <td><asp:TextBox  id="txtNome" runat="server"> </asp:TextBox></td>
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox  id="textCpf" runat="server"> </asp:TextBox></td>                           
+                                <td><asp:TextBox  id="txtCpf" runat="server"> </asp:TextBox></td>                           
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
@@ -112,6 +112,8 @@
                             <tr>
                                 <td><label>Complemento</label></td>
                                 <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox></td>
+                                <td><label>Telefone</label></td>
+                                <td><asp:TextBox  id="txtTelefone" runat="server"> </asp:TextBox></td>
                                 
                             </tr>
 

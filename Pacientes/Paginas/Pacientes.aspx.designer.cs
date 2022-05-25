@@ -60,13 +60,13 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle textCpf.
+        /// Controle txtCpf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textCpf;
+        protected global::System.Web.UI.WebControls.TextBox txtCpf;
 
         /// <summary>
         /// Controle txtSexo.
@@ -130,6 +130,15 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtComplemento;
+
+        /// <summary>
+        /// Controle txtTelefone.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefone;
 
         /// <summary>
         /// Controle txtEmail.
