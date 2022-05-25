@@ -23,6 +23,9 @@ namespace Pacientes.Paginas
             DALPaciente dal = new DALPaciente();
             ListaPacientes = new List<ModeloPaciente>();
             ListaPacientes = dal.Listar();
+
+            txtEstado.DataSource = dal.ListarEstados();
+            txtEstado.DataBind();
         }
 
         /*protected void Button_Modal_inserir(object sender, EventArgs e)
@@ -60,6 +63,14 @@ namespace Pacientes.Paginas
         protected void botaoModalInserir_Abrir(object sender, EventArgs e)
         {
             modalInserir.Show();
+        }
+
+        protected void txtEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DALPaciente dal = new DALPaciente();
+    
+            txtEstado.DataSource = dal.ListarEstados();
+            txtEstado.DataBind();
         }
     }
 }

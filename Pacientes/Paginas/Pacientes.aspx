@@ -105,7 +105,10 @@
                                 <td><asp:TextBox  id="txtCidade" runat="server"> </asp:TextBox></td>
                                 
                                 <td><label>Estado</label></td>
-                                <td><asp:TextBox  id="txtEstado" runat="server"> </asp:TextBox></td>
+                                <td><asp:DropDownList ID="txtEstado" runat="server" DataTextField="descricao" DataValueField="sigla" OnSelectedIndexChanged="txtEstado_SelectedIndexChanged"></asp:DropDownList></td>
+                                    
+                                <%-- <td><asp:TextBox  id="txtEstado" runat="server"> </asp:TextBox></td>--%>
+                                
                                                                     
                             </tr>
 
@@ -130,7 +133,7 @@
                                 <td><asp:TextBox  id="txtNome_mae" runat="server"> </asp:TextBox></td>
                                 
                                 <td><label>Alergias</label></td>
-                                <td><asp:TextBox id="txtAlergia" runat="server"> </asp:TextBox></td>
+                                <td><asp:DropDownList id="txtAlergia" runat="server"> </asp:DropDownList></td>
                                 
                             </tr>
 

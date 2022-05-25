@@ -120,7 +120,7 @@ namespace Pacientes.Paginas
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        protected global::System.Web.UI.WebControls.DropDownList txtEstado;
 
         /// <summary>
         /// Controle txtComplemento.
@@ -174,7 +174,7 @@ namespace Pacientes.Paginas
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAlergia;
+        protected global::System.Web.UI.WebControls.DropDownList txtAlergia;
 
         /// <summary>
         /// Controle botaoModalFechar1.

@@ -67,11 +67,11 @@ namespace Pacientes.DAL
 
         }
 
-        /*public DataTable Listar()
+        public DataTable ListarEstados()
         {
             DataTable tabela = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter("Select * from PACIENTES.PACIENTES", connString.ConnectionString);
+            OracleDataAdapter da = new OracleDataAdapter("Select * from PACIENTES.ESTADOS", connString.ConnectionString);
 
             try
             {
@@ -86,7 +86,28 @@ namespace Pacientes.DAL
                 throw new Exception(erro.Message);
             }
 
-        }*/
+        }
+
+        public DataTable ListarAlergias()
+        {
+            DataTable tabela = new DataTable();
+
+            OracleDataAdapter da = new OracleDataAdapter("Select * from PACIENTES.ALERGIAS", connString.ConnectionString);
+
+            try
+            {
+
+                //Pegar o retorno do comando e preencher a tabela
+                da.Fill(tabela);
+                return tabela;
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+        }
 
         
         public List<ModeloPaciente> Listar()
