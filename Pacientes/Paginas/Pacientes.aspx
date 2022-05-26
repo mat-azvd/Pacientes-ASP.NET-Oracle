@@ -93,8 +93,8 @@ ControlToValidate="txtPassword" runat="server" />
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
-         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" runat="server">                         
-                <div class="modal-content ">
+         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style = "display:none" runat="server">                         
+                <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
                     </div>
