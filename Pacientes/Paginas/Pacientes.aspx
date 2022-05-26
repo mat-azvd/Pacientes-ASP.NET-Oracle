@@ -1,19 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/MasterPage.Master" AutoEventWireup="true" CodeBehind="Pacientes.aspx.cs" Inherits="Pacientes.Paginas.Pacientes" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../Scripts/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
-            $("#txtCpf").mask("999.999.999-99");
-        });
-    </script>
+     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
-    <asp:ScriptManager runat="server"></asp:ScriptManager>
+   
     <%--<script>
         $(function () {
             $("#modal-inserir").dialog({
@@ -63,14 +59,39 @@
             </table>
         </div>
         <div>
+            <a href="#" id="hlkShowLogin" class="link">Login</a>
+            <asp:TextBox id="Text" runat="server"> </asp:TextBox>
             <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
             <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
         </div>
+
+<div id="divLoginDialog" style="display: none;">
+<table cellspacing="0" cellpadding="2">
+<tr>
+<td class="label">User Name:</td>
+<td>
+<asp:TextBox ID="txtUserName" ClientIDMode="Static"  runat="server"/>
+<asp:TextBox ID="TextCpf"  runat="server"/>
+<asp:RequiredFieldValidator ErrorMessage="User name required" 
+ControlToValidate="txtUserName" runat="server" />
+</td>
+</tr>
+<tr>
+<td class="label">Password:</td>
+<td>
+<asp:TextBox ID="txtPassword" Mode="password" 
+ClientIDMode="Static"  runat="server"/>
+<asp:RequiredFieldValidator ErrorMessage="Password required" 
+ControlToValidate="txtPassword" runat="server" />
+</td>
+</tr>
+</table>
+</div>
     </asp:Panel>
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
-         <asp:Panel ID="PanelModalInserir"  runat="server">         
+         <asp:Panel ID="PanelModalInserir"  runat="server">             
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                  
@@ -79,10 +100,14 @@
                     <div class="modal-body">
                         <table>
                             <tr>
+                                
                                 <td><label>Nome</label></td>
                                 <td><asp:TextBox  id="txtNome" runat="server"> </asp:TextBox></td>
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox  id="txtCpf" runat="server"> </asp:TextBox></td>                           
+                                <td><asp:TextBox  ID="txtCpf" runat="server" > </asp:TextBox>
+                                    <ajaxToolkit:MaskedEditExtender ID="txtCpf_MaskedEditExtender" runat="server" BehaviorID="txtCpf_MaskedEditExtender" Mask="999,999,999-99" TargetControlID="txtCpf" />
+                                </td> 
+                              
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
@@ -147,7 +172,7 @@
                     </div>
                 </div>
             </div>
-        
+       
        </asp:Panel> 
     
 </asp:Content>

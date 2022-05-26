@@ -15,6 +15,15 @@ namespace Pacientes.Paginas
     {
 
         /// <summary>
+        /// Controle Text.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Text;
+
+        /// <summary>
         /// Controle botaoModalInserir.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,33 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblabel;
+
+        /// <summary>
+        /// Controle txtUserName.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+
+        /// <summary>
+        /// Controle TextCpf.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextCpf;
+
+        /// <summary>
+        /// Controle txtPassword.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
         /// Controle modalInserir.
@@ -67,6 +103,15 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCpf;
+
+        /// <summary>
+        /// Controle txtCpf_MaskedEditExtender.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender txtCpf_MaskedEditExtender;
 
         /// <summary>
         /// Controle txtSexo.
