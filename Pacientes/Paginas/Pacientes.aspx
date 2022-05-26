@@ -30,15 +30,17 @@
     </script>
     --%>
 
-    <asp:Panel runat="server">
+    <asp:Panel HorizontalAlign="center" runat="server">
 
         <div id="titulo">
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>
 
-        <div id="tabela"> 
-            <table>
-                <thead>
+        <div style="width:80%; background-color:black;"></div>
+
+        <div id="tabela" class="divTabela" > 
+            <table class="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" >
+                <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
                         <th>CPF</th>
@@ -51,8 +53,8 @@
                     <tr>
                         <td><%=obj.nome%></td>
                         <td><%=obj.cpf%></td>
-                        <td><button>Detalhes</button></td>
-                        <td><button>Excluir</button></td>
+                        <td><button class="btn border-primary">Detalhes</button></td>
+                        <td><button class="btn-danger">Excluir</button></td>
                     </tr>
                     <%} %>
                 </tbody>
