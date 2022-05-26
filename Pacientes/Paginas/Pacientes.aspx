@@ -36,11 +36,9 @@
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>
 
-        <div style="width:80%; background-color:black;"></div>
-
         <div id="tabela" class="divTabela" > 
-            <table class="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" >
-                <thead class="thead-dark">
+            <table class="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;" >
+                <thead class="thead-dark" style="background-color:black; color:white">
                     <tr>
                         <th>Nome</th>
                         <th>CPF</th>
@@ -61,14 +59,16 @@
             </table>
         </div>
         <div>
-            <a href="#" id="hlkShowLogin" class="link">Login</a>
-            <asp:TextBox id="Text" runat="server"> </asp:TextBox>
+            <%-- <a href="#" id="hlkShowLogin" class="link">Login</a>
+                <asp:TextBox id="Text" runat="server"> </asp:TextBox>
+                --%>
+            
             <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
             <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
         </div>
-
-<div id="divLoginDialog" style="display: none;">
-<table cellspacing="0" cellpadding="2">
+<%--
+<div id="divLoginDialog" class="overlayTeste">
+<table cellspacing="0" cellpadding="2" style="margin-left:auto; margin-right:auto;">
 <tr>
 <td class="label">User Name:</td>
 <td>
@@ -88,14 +88,13 @@ ControlToValidate="txtPassword" runat="server" />
 </td>
 </tr>
 </table>
-</div>
+</div> --%>
     </asp:Panel>
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
-         <asp:Panel ID="PanelModalInserir"  runat="server">             
-            <div class="modal-dialog">
-                <div class="modal-content">
+         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" runat="server">                         
+                <div class="modal-content ">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
                     </div>
@@ -173,7 +172,7 @@ ControlToValidate="txtPassword" runat="server" />
                         <asp:Button ID="botaoInserir" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserir_Click1" />
                     </div>
                 </div>
-            </div>
+           
        
        </asp:Panel> 
     

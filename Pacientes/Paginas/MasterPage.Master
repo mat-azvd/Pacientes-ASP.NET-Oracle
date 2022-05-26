@@ -9,7 +9,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="../CSS/Styles.css" />
-    <script src="../Scripts/jquery-3.6.0.intellisense.js"></script>
+    <%-- <script src="../Scripts/jquery-3.6.0.intellisense.js"></script>
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../Scripts/jquery-ui.js"></script>
@@ -41,7 +41,7 @@
                 return;
             });
         });//end Jquery
-    </script>
+    </script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
