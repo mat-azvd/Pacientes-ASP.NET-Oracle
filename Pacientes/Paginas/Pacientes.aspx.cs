@@ -55,6 +55,11 @@ namespace Pacientes.Paginas
             string numero = Convert.ToString(txtNumero.Text);
             string complemento = Convert.ToString(txtComplemento.Text);
 
+            DALPaciente dal = new DALPaciente();
+            ModeloPaciente obj = new ModeloPaciente();
+
+
+
         }
 
         protected void botaoModalInserir_Abrir(object sender, EventArgs e)
@@ -74,10 +79,15 @@ namespace Pacientes.Paginas
             txtEstado.DataBind();
         }
 
-        protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void txtAlergia_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            DALPaciente dal = new DALPaciente();
 
+            txtEstado.DataSource = dal.ListarAlergias();
+            txtEstado.DataBind();
         }
+
+        
 
         
     }

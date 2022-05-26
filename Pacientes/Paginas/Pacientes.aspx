@@ -103,10 +103,11 @@ ControlToValidate="txtPassword" runat="server" />
                             <tr>
                                 
                                 <td><label>Nome</label></td>
-                                <td><asp:TextBox  id="txtNome" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtNome" type="text" runat="server"> </asp:TextBox></td>
+                                    
                                 <td><label>CPF</label></td>
                                 <td><asp:TextBox  ID="txtCpf" runat="server" > </asp:TextBox>
-                                    <ajaxToolkit:MaskedEditExtender ID="txtCpf_MaskedEditExtender" runat="server" BehaviorID="txtCpf_MaskedEditExtender" Mask="999,999,999-99" TargetControlID="txtCpf" />
+                                    <ajaxToolkit:MaskedEditExtender ID="txtCpf_MaskedEditExtender" runat="server" BehaviorID="txtCpf_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="pt-br" CultureCurrencySymbolPlaceholder="pt-br" CultureDateFormat="pt-br" CultureDatePlaceholder="pt-br" CultureDecimalPlaceholder="pt-br" CultureThousandsPlaceholder="pt-br" CultureTimePlaceholder="pt-br"  Mask="999.999.999-99" TargetControlID="txtCpf" />
                                 </td> 
                               
                             </tr>
@@ -114,7 +115,10 @@ ControlToValidate="txtPassword" runat="server" />
                                 <td><label>Sexo</label></td>
                                 <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox></td>  
+                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox>
+                                    
+                                </td> 
+                                    
                                 
                             </tr>
 
@@ -161,7 +165,8 @@ ControlToValidate="txtPassword" runat="server" />
                                 <td><asp:TextBox  id="txtNome_mae" runat="server"> </asp:TextBox></td>
                                 
                                 <td><label>Alergias</label></td>
-                                <td><asp:DropDownList id="txtAlergia" runat="server"> </asp:DropDownList></td>
+                                <td><asp:DropDownList ID="txtAlergia" runat="server" DataTextField="nome_alergia" DataValueField="nome_alergia" OnSelectedIndexChanged="txtAlergia_SelectedIndexChanged1" Width="150px"></asp:DropDownList></td>
+                               
                                 
                             </tr>
 
