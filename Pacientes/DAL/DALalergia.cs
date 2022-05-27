@@ -32,7 +32,7 @@ namespace Pacientes.DAL
             try
             {
 
-                cmd.CommandText = "Insert into Pacientes.Pacientes (nome_alergia) values (@nome_alergia)";
+                cmd.CommandText = "Insert into PACIENTES.ALERGIAS (nome_alergia) values (:nome_alergia)";
                 cmd.Parameters.Add("nome_alergia", obj.nome_alergia);
                 
 
@@ -112,6 +112,41 @@ namespace Pacientes.DAL
             }
 
             return ListaAlergia;
+        }
+
+        public ModeloAlergia GetAlergiaNome(string nome_alergia)
+        {
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            ModeloAlergia obj = new ModeloAlergia();
+
+            try
+            {
+                cmd.CommandText = "select * from PACIENTES.ALERGIAS WHERE nome_alergia=:nome_alergia";
+
+                cmd.BindByName = true;
+
+                cmd.Parameters.Add(new OracleParameter("nome_alergia", nome_alergia));
+
+                cmd.Connection = con;
+                con.Open();
+
+                OracleDataReader registro = cmd.ExecuteReader();
+
+                if (registro.HasRows)
+                {
+                    obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
+
+                }
+
+            }
+            catch (Exception erro){
+                throw new Exception(erro.Message);
+            }
+
+            return obj;
         }
 
     }

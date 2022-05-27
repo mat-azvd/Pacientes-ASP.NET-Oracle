@@ -25,5 +25,41 @@ namespace Pacientes.Paginas
             ListaAlergia = new List<ModeloAlergia>();
             ListaAlergia = dal.ListaDeAlergias();
         }
+
+        protected void botaoModalInserirAlergia_Abrir(object sender, EventArgs e)
+        {
+
+            ModalInserirAlergia.Show();
+        }
+
+
+
+
+        protected void botaoInserirAlergia_Click1(object sender, EventArgs e)
+        {
+            string nome_alergia = Convert.ToString(txtNomeAlergia.Text);
+            string msg = "";
+
+            DALalergia dal = new DALalergia();
+            ModeloAlergia obj = new ModeloAlergia();
+
+            obj.nome_alergia = nome_alergia.Trim();
+
+            ModeloAlergia objComparar = dal.GetAlergiaNome(obj.nome_alergia);
+
+            if (objComparar.nome_alergia != null)
+            {
+                msg = "<script> alert('ERRO: Produto ja Existe!'); </script>";
+            }
+            else
+            {
+                dal.inserirAlergia(obj);
+                msg = "<script> alert('Produto Inserido!'); </script>";
+            }
+            
+
+            Page_Load(null, EventArgs.Empty);
+        }
     }
+
 }

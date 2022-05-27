@@ -42,9 +42,38 @@
         </div>
         <div>
                     
-            <asp:Button ID="botaoModalInserir" class="btn btn-primary"  runat="server" text="Novo Paciente"/>
+            <asp:Button ID="botaoModalInserirAlergia" class="btn btn-primary" OnClick="botaoModalInserirAlergia_Abrir" runat="server" text="Nova Alergia"/>
             <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
         </div>
 
 </asp:Panel>
+
+    <ajaxToolkit:ModalPopupExtender ID="ModalInserirAlergia" PopupControlID="PanelInserirAlergia" TargetControlID="lblabel" CancelControlID="botaoModalFechar2" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel runat="server" ID="PanelInserirAlergia" CssClasss="PanelModalInserir" style = "display:none">
+
+         <div class="modal-content" style="background-color:aqua">
+                    <div class="modal-header">                  
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                
+                                <td><label>Nome da Alergia</label></td>
+                                <td><asp:TextBox  id="txtNomeAlergia" type="text" runat="server"> </asp:TextBox></td>                                               
+                              
+                            </tr>           
+
+                        </table>
+                        </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="botaoModalFechar2" CssClass="botaoStyle" runat="server" Text="Fechar" />
+                        <asp:Button ID="botaoInserir2" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserirAlergia_Click1" />
+                    </div>
+                </div>
+     
+
+    </asp:Panel>
+
 </asp:Content>
