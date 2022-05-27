@@ -66,12 +66,17 @@ namespace Pacientes.Paginas
         {
             DALPaciente dal = new DALPaciente();
 
+            DALalergia dal2 = new DALalergia();
+
+            txtAlergia.DataSource = dal2.ListarAlergias();
+            txtAlergia.DataBind();
+
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
             modalInserir.Show();
         }
 
-        protected void txtEstado_SelectedIndexChanged(object sender, EventArgs e)
+        protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
         {
             DALPaciente dal = new DALPaciente();
     
@@ -81,10 +86,10 @@ namespace Pacientes.Paginas
 
         protected void txtAlergia_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            DALPaciente dal = new DALPaciente();
+            DALalergia dal = new DALalergia();
 
-            txtEstado.DataSource = dal.ListarAlergias();
-            txtEstado.DataBind();
+            txtAlergia.DataSource = dal.ListarAlergias();
+            txtAlergia.DataBind();
         }
 
         

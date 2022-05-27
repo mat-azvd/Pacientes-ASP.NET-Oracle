@@ -45,7 +45,7 @@ namespace Pacientes.DAL
 
             catch (Exception erro)
             {
-                new Exception(erro.Message);
+                new Exception("Nao Inserido: " + erro.Message);
             }
 
             finally
@@ -53,6 +53,65 @@ namespace Pacientes.DAL
                 con.Close();
             }
 
+        }
+
+        public DataTable ListarAlergias()
+        {
+            DataTable tabela = new DataTable();
+
+            OracleDataAdapter da = new OracleDataAdapter("Select * from PACIENTES.ALERGIAS", connString.ConnectionString);
+
+            try
+            {
+
+                //Pegar o retorno do comando e preencher a tabela
+                da.Fill(tabela);
+                return tabela;
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+        }
+
+        public List<ModeloAlergia> ListaDeAlergias()
+        {
+            List<ModeloAlergia> ListaAlergia = new List<ModeloAlergia>();
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.ALERGIAS";
+
+            cmd.BindByName = true;
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                while (registro.Read())
+                {
+                    ModeloAlergia obj = new ModeloAlergia();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
+
+                    ListaAlergia.Add(obj);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+            return ListaAlergia;
         }
 
     }

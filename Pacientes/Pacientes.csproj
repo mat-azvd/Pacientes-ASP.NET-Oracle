@@ -138,6 +138,7 @@
     <Content Include="Content\jquery-ui.structure.css" />
     <Content Include="Content\jquery-ui.theme.css" />
     <Content Include="CSS\Styles.css" />
+    <Content Include="Paginas\Alergia.aspx" />
     <Content Include="Paginas\Login.aspx" />
     <Content Include="Paginas\Pacientes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -185,10 +186,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DALalergia.cs" />
     <Compile Include="DAL\DALPaciente.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="Modelo\ModeloAlergia.cs" />
     <Compile Include="Modelo\ModeloPaciente.cs" />
     <Compile Include="Modelo\ModeloUsuario.cs" />
+    <Compile Include="Paginas\Alergia.aspx.cs">
+      <DependentUpon>Alergia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Alergia.aspx.designer.cs">
+      <DependentUpon>Alergia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

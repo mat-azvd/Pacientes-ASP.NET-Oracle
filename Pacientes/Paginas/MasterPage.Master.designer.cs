@@ -60,6 +60,15 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.HyperLink h1Usuarios;
 
         /// <summary>
+        /// Controle h1Alergia.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink h1Alergia;
+
+        /// <summary>
         /// Controle h1Sair.
         /// </summary>
         /// <remarks>

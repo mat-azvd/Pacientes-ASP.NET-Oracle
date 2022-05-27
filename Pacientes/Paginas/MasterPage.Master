@@ -50,8 +50,9 @@
 
             <nav>
                 <asp:Label ID="labelMenu" runat="server" CssClass="botoesMenu">Lista</asp:Label>                
-                <asp:HyperLink ID="h1Pacientes" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Produtos.aspx">Pacientes</asp:HyperLink>
-                <asp:HyperLink ID="h1Usuarios" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Produtos.aspx">Usuarios</asp:HyperLink>
+                <asp:HyperLink ID="h1Pacientes" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Pacientes.aspx">Pacientes</asp:HyperLink>
+                <asp:HyperLink ID="h1Usuarios" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Pacientes.aspx">Usuarios</asp:HyperLink>
+                <asp:HyperLink ID="h1Alergia" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Alergia.aspx">Usuarios</asp:HyperLink>
                 <asp:HyperLink ID="h1Sair" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Login.aspx">Sair</asp:HyperLink>
             </nav>
 
