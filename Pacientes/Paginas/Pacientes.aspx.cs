@@ -22,9 +22,9 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             ListaPacientes = new List<ModeloPaciente>();
-            ListaPacientes = dal.Listar();  
-            
-
+            ListaPacientes = dal.Listar();
+            GridViewPacientes.DataSource = dal.Listar();
+            GridViewPacientes.DataBind();
         }
 
         /*protected void Button_Modal_inserir(object sender, EventArgs e)
@@ -155,6 +155,22 @@ namespace Pacientes.Paginas
             Response.Redirect("~/Paginas/Pacientes.aspx");
         }
 
+        protected void GridViewPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        protected void GridViewPacientes_RowDeleting(object sender, EventArgs e)
+        {
 
+        }
+  
+
+        protected void GridViewPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DALPaciente dal = new DALPaciente();
+            GridViewPacientes.PageIndex = e.NewPageIndex;
+            GridViewPacientes.DataSource = dal.Listar();
+            GridViewPacientes.DataBind();
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace Pacientes.Paginas
 
         protected void deleteAlergia_click()
         {
-            
+           
         }
 
     }

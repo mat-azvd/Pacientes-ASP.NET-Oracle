@@ -72,52 +72,45 @@
                     </tr>
                     <%} %>
                 </tbody>
-            <%-- </table>
-            <asp:Table runat="server">
-                <asp:TableHeaderRow runat="server">
-                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
-                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
-                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
-                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
-                    
-                </asp:TableHeaderRow>
-                
-                <asp:TableRow runat="server">                    
-                    <asp:TableCell runat="server"></asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>--%>
+           </table>
         </div>
-        <div>
-            <%-- <a href="#" id="hlkShowLogin" class="link">Login</a>
-                <asp:TextBox id="Text" runat="server"> </asp:TextBox>
-                --%>
-            
+        <div>                
             <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
             <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
         </div>
-<%--
-<div id="divLoginDialog" class="overlayTeste">
-<table cellspacing="0" cellpadding="2" style="margin-left:auto; margin-right:auto;">
-<tr>
-<td class="label">User Name:</td>
-<td>
-<asp:TextBox ID="txtUserName" ClientIDMode="Static"  runat="server"/>
-<asp:TextBox ID="TextCpf"  runat="server"/>
-<asp:RequiredFieldValidator ErrorMessage="User name required" 
-ControlToValidate="txtUserName" runat="server" />
-</td>
-</tr>
-<tr>
-<td class="label">Password:</td>
-<td>
-<asp:TextBox ID="txtPassword" Mode="password" 
-ClientIDMode="Static"  runat="server"/>
-<asp:RequiredFieldValidator ErrorMessage="Password required" 
-ControlToValidate="txtPassword" runat="server" />
-</td>
-</tr>
-</table>
-</div> --%>
+
+         <div id="formTabela"  >
+            <asp:Label ID="tituloProduto" CssClass="LabelTitulo" runat="server" 
+                Text="Produtos"></asp:Label>
+            <br />
+            <asp:GridView ID="GridViewPacientes" HorizontalAlign="Center" 
+                CssClass="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;"
+                runat="server" AutoGenerateColumns="False"
+                ShowHeaderWhenEmpty="True" EmptyDataText="Sem Pacientes Cadastrados" 
+                OnRowDeleting="GridViewPacientes_RowDeleting" 
+                BackColor="White" BorderColor="black" BorderStyle="Solid" 
+                BorderWidth="1px" CellPadding="15" ForeColor="Black" 
+                GridLines="Both" AllowPaging="True" 
+                OnPageIndexChanging="GridViewPacientes_PageIndexChanging" >
+        
+                <Columns>
+                    <asp:BoundField HeaderText="Nome" DataField="nome" />
+                    <asp:BoundField HeaderText="CPF" DataField="cpf" />
+                   
+                    <asp:CommandField ControlStyle-CssClass="btn btn-primary" HeaderText="Ação1" ShowSelectButton="True" SelectText="Editar" />
+                    <asp:CommandField ControlStyle-CssClass="btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
+                </Columns>
+        
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
+      
+            </asp:GridView> 
+            <br />
+                <%-- <asp:Button ID="Button1" CssClass="botaoInserir" runat="server" Text="Inserir" OnClick="botaoModalInserir_Click" />
+                <asp:Button ID="ButtonDownloadPDF" CssClass="botaoPDF" runat="server" Text="Download PFD" OnClick="ButtonDownloadPDF_Click" />--%>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </div>
+
     </asp:Panel>
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" 
