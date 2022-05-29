@@ -43,6 +43,8 @@ namespace Pacientes.Paginas
         protected void botaoInserir_Click1(object sender, EventArgs e)
         {
             string nome = Convert.ToString(txtNome.Text);
+            string nome_alergia = Convert.ToString(txtAlergia.Text);
+            string cpf = Convert.ToString(txtCpf.Text);
             /*
             
             string cpf = Convert.ToString(txtCpf.Text);
@@ -67,14 +69,15 @@ namespace Pacientes.Paginas
             ModeloPaciente obj = new ModeloPaciente();
             ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
 
+            obj2.nome_alergia = nome_alergia.Trim();
             obj.nome = nome.Trim();
-            obj.cpf = Convert.ToString(txtCpf.Text);
+            obj.cpf = cpf.Trim();
             obj.sexo = Convert.ToString(txtSexo.Text);
             obj.telefone = Convert.ToString(txtTelefone.Text);
             obj.email = Convert.ToString(txtEmail.Text);
             obj.Data_Nascimento = Convert.ToString(txtData_nascimento.Text);
             obj.Nome_Mae = Convert.ToString(txtNome_mae.Text);
-            obj2.nome_alergia = Convert.ToString(txtAlergia.Text);
+            
             obj.Estado_Civil = Convert.ToString(txtEstado_civil.Text);
             obj.Rua = Convert.ToString(txtRua.Text);
             obj.Estado = Convert.ToString(txtEstado.Text);
@@ -91,8 +94,8 @@ namespace Pacientes.Paginas
             else
             {
                 dal.inserir(obj);
-                dal2.GetAlergiaNome(obj2.nome_alergia);
-                dal.GetRegistro(obj.cpf);
+                obj2 = dal2.GetAlergiaNome(obj2.nome_alergia);
+                obj = dal.GetRegistro(obj.cpf);
                 obj3.ID_PACIENTE = obj.ID;
                 obj3.ID_ALERGIA = obj2.ID;
                 dal2.inserirPacienteXAlergia(obj3);

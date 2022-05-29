@@ -198,25 +198,25 @@ ControlToValidate="txtPassword" runat="server" />
 
     <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style = "display:none">
          <div class="modal-content" style="background-color:red">
-             <div id="header1">
+             <div id="header1" class="modal-header">
                  <h4 class="modal-title">Paciente ja cadastrado</h4>
              </div>
-             <div id="footer1">
+             <div id="footer1" class="modal-footer">
                  <asp:Button ID="botaoModalErroFechar" CssClass="botaoStyle" runat="server" Text="Fechar" />
              </div>
          </div>
     </asp:Panel>
 
      <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="lblabel" 
-
+         OkControlID="botaoOkModalFechar"
           CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style = "display:none">
          <div class="modal-content" style="background-color:green">
-             <div id="header2">
+             <div id="header2" class="modal-header">
                  <h4 class="modal-title">Cadastrado com Sucesso!</h4>
              </div>
-             <div id="footer2">
+             <div id="footer2" class="modal-footer">
                  <asp:Button ID="botaoOkModalFechar" CssClass="botaoStyle" runat="server" Text="Fechar" OnClick="botaoOk_Fechar"/>
              </div>
          </div>
