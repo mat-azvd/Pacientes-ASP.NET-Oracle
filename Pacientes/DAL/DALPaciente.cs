@@ -223,6 +223,53 @@ namespace Pacientes.DAL
 
         }
 
+        public void AlterarPaciente(ModeloPaciente obj)
+        {
+
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+
+
+            //Executar um comando no banco
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE Pacientes.Pacientes set nome=:nome,cpf=:cpf,sexo=:sexo,telefone=:telefone,email=:email,Data_Nascimento=:Data_Nascimento,Nome_Mae=:Nome_Mae,Estado_Civil=:Estado_Civil,Rua=:Rua,Estado=:Estado,Cidade=:Cidade,Numero=:Numero,Complemento=:Complemento) where ID=:ID";
+
+                cmd.Parameters.Add("ID", obj.ID);
+                cmd.Parameters.Add("nome", obj.nome);
+                cmd.Parameters.Add("cpf", obj.cpf);
+                cmd.Parameters.Add("sexo", obj.sexo);
+                cmd.Parameters.Add("telefone", obj.telefone);
+                cmd.Parameters.Add("email", obj.email);
+                cmd.Parameters.Add("Data_Nascimento", obj.Data_Nascimento);
+                cmd.Parameters.Add("Nome_Mae", obj.Nome_Mae);
+                cmd.Parameters.Add("Estado_Civil", obj.Estado_Civil);
+                cmd.Parameters.Add("Rua", obj.Rua);
+                cmd.Parameters.Add("Estado", obj.Estado);
+                cmd.Parameters.Add("Cidade", obj.Cidade);
+                cmd.Parameters.Add("Numero", obj.Numero);
+                cmd.Parameters.Add("Complemento", obj.Complemento);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
 
     }
 }

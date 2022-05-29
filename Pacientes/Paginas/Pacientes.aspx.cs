@@ -171,6 +171,51 @@ namespace Pacientes.Paginas
             ModalEditarPaciente.Show();
 
         }
+
+        protected void botaoEditarOK_Click(object sender, EventArgs e)
+        {
+            int linha = GridViewPacientes.SelectedIndex;
+            string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
+
+            DALPaciente dal = new DALPaciente();
+            DALalergia dal2 = new DALalergia();
+            ModeloAlergia obj2 = new ModeloAlergia();
+            ModeloPaciente obj = new ModeloPaciente();
+            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+
+            ModeloPaciente objP = dal.GetRegistro(cod);
+
+            int codAP = objP.ID;
+
+            ModeloPacienteXAlergia objAP = dal2.GetAlergiaXPacienteID(codAP);
+
+            int codA = objAP.ID_ALERGIA;
+
+            ModeloAlergia objA = dal2.GetAlergiaID(codA);
+
+            string nome_alergia = txtEditarAlergia.Text.Trim();
+            string nome = txtEditarNome.Text.Trim();
+            string cpf = txtEditarCpf.Text.Trim();
+
+            objA.nome_alergia = Convert.ToString(nome_alergia);
+            objP.nome = Convert.ToString(nome);
+            objP.cpf = Convert.ToString(cpf);
+            objP.sexo = Convert.ToString(txtEditarSexo.Text);
+            objP.telefone = Convert.ToString(txtEditarTelefone.Text);
+            objP.email = Convert.ToString(txtEditarEmail.Text);
+            objP.Data_Nascimento = Convert.ToString(txtEditarNasci.Text);
+            objP.Nome_Mae = Convert.ToString(txtEditarMae.Text);
+            objP.Estado_Civil = Convert.ToString(txtEditarEstadoCivil.Text);
+            objP.Rua = Convert.ToString(txtEditarRua.Text);
+            objP.Estado = Convert.ToString(txtEditarEstado.Text);
+            objP.Cidade = Convert.ToString(txtEditarCidade.Text);
+            objP.Numero = Convert.ToString(txtEditarNumero.Text);
+            objP.Complemento = Convert.ToString(txtEditarComplemento.Text);
+
+            dal.AlterarPaciente(obj);
+
+        }
+          
         protected void GridViewPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int linha = Convert.ToInt32(e.RowIndex);

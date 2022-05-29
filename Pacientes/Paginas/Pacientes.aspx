@@ -263,7 +263,7 @@
                         </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnModalEditarFechar" CssClass="botaoStyle" runat="server" Text="Fechar" />
-                        <asp:Button ID="btnModalEditar" CssClass="botaoStyle" runat="server" Text="Inserir"  /> <%--OnClick="botaoInserir_Click1" --%>
+                        <asp:Button ID="btnModalEditar" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoEditarOK_Click"  /> <%-- --%>
                     </div>
                 </div>                 
        </asp:Panel>
