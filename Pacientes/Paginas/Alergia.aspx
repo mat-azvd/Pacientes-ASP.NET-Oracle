@@ -30,11 +30,14 @@
                 </thead>
                 <tbody>
                 <%foreach (var obj in ListaAlergia) {%>
+                    
                     <tr>
+                        
                         <td><%=obj.ID%></td>
-                        <td><%=obj.nome_alergia%></td>
+                        <td><%=obj.nome_alergia%></td>             
                         <td><button class="btn border-primary">Detalhes</button></td>
-                        <td><button class="btn-danger">Excluir</button></td>
+                        <td><button runat="server" id="deleteAlergia" class="btn-danger" onclick="deleteAlergia_click">Excluir</button></td>
+                        
                     </tr>
                     <%} %>
                 </tbody>

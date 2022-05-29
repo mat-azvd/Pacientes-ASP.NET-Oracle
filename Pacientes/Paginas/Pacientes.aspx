@@ -60,16 +60,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                <%foreach (var obj in ListaPacientes) {%>
-                    <tr>
-                        <td><%=obj.nome%></td>
-                        <td><%=obj.cpf%></td>
-                        <td><button class="btn border-primary">Detalhes</button></td>
-                        <td><button class="btn-danger">Excluir</button></td>
+                <%
+                    foreach (var obj in ListaPacientes) {
+                        %>
+                    <tr >
+                        <td ><%=obj.nome%></td>
+                        <td ><%=obj.cpf%></td>
+                        <td ><button class="btn border-primary">Detalhes</button></td>
+                        <td ><button value="<%=obj.cpf%>" class="btn-danger">Excluir</button></td>
+                        
                     </tr>
                     <%} %>
                 </tbody>
-            </table>
+            <%-- </table>
+            <asp:Table runat="server">
+                <asp:TableHeaderRow runat="server">
+                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
+                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
+                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
+                    <asp:TableHeaderCell runat="server">Nome</asp:TableHeaderCell>
+                    
+                </asp:TableHeaderRow>
+                
+                <asp:TableRow runat="server">                    
+                    <asp:TableCell runat="server"></asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>--%>
         </div>
         <div>
             <%-- <a href="#" id="hlkShowLogin" class="link">Login</a>

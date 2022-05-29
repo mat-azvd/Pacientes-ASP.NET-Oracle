@@ -34,7 +34,6 @@ namespace Pacientes.Paginas
 
 
 
-
         protected void botaoInserirAlergia_Click1(object sender, EventArgs e)
         {
             string nome_alergia = Convert.ToString(txtNomeAlergia.Text);
@@ -61,6 +60,14 @@ namespace Pacientes.Paginas
             Page_Load(null, EventArgs.Empty);
         }
 
+
+        protected void deleteAlergia_click()
+        {
+            
+        }
+
     }
+
+   
 
 }
