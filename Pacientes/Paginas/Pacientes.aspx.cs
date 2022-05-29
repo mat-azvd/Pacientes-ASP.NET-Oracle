@@ -99,7 +99,7 @@ namespace Pacientes.Paginas
                 obj3.ID_PACIENTE = obj.ID;
                 obj3.ID_ALERGIA = obj2.ID;
                 dal2.inserirPacienteXAlergia(obj3);
-                OkModal.Show();
+               OkModal.Show();
             }
 
         }
@@ -112,16 +112,7 @@ namespace Pacientes.Paginas
 
             txtAlergia.DataSource = dal2.ListarAlergias();
             txtAlergia.DataBind();
-            /*
-            if (dal2.ListAlergias().HasRows)
-            {
-                txtAlergia1.DataSource = dal2.ListAlergias();
-                txtAlergia1.DataTextField = "nome_alergia";
-                txtAlergia1.DataValueField= "nome_alergia";
-                txtAlergia1.DataBind();
-            }
-            */
-
+           
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
             modalInserir.Show();
@@ -129,7 +120,7 @@ namespace Pacientes.Paginas
 
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
         {
-           /* DALPaciente dal = new DALPaciente();
+           /*DALPaciente dal = new DALPaciente();
     
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
@@ -162,13 +153,13 @@ namespace Pacientes.Paginas
         {
             int linha = Convert.ToInt32(e.RowIndex);
             string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
-
+            /*
             labelCOD.Text = cod;
             ModalCorfirma.Show();
-
+            */
             
         }
-
+        /*
         protected void botaoConfirma_Confirmar(object sender, EventArgs e)
         {
 
@@ -183,16 +174,19 @@ namespace Pacientes.Paginas
             AtualizaLista();
             Response.Redirect("~/Paginas/Pacientes.aspx");
         }
-        
+       */
 
         protected void GridViewPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            DALPaciente dal = new DALPaciente();
+           DALPaciente dal = new DALPaciente();
             GridViewPacientes.PageIndex = e.NewPageIndex;
             GridViewPacientes.DataSource = dal.Listar();
             GridViewPacientes.DataBind();
         }
 
-       
+        protected void modalTesteABrir(object sender, EventArgs e)
+        {
+            ModalPopupExtender1.Show();
+        }
     }
 }

@@ -9,6 +9,8 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
+
+
     <asp:Panel HorizontalAlign="center" runat="server">
 
         <div id="titulo">
@@ -25,7 +27,7 @@
                 BackColor="White" BorderColor="black" BorderStyle="Solid" 
                 BorderWidth="1px" CellPadding="15" ForeColor="Black" 
                 GridLines="Both" AllowPaging="True" 
-                OnPageIndexChanging="GridViewPacientes_PageIndexChanging" >
+               OnPageIndexChanging="GridViewPacientes_PageIndexChanging" >
         
                 <Columns>
                     <asp:BoundField HeaderText="Nome" DataField="nome" />
@@ -49,9 +51,16 @@
             <asp:Label ID="Label2"  runat="server" Text=""></asp:Label>
             <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
             <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+             <asp:Button ID="Button3" class="btn btn-primary" OnClick="modalTesteABrir" runat="server" text="TESTE"/>
         </div>
         </div>
 
+    </asp:Panel>
+    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="teste" TargetControlID="Label1" CancelControlID="btnTeste" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+    <asp:Panel id="teste" runat="server">
+        <asp:Label runat="server" Text="TESTEEEE"></asp:Label>
+        <asp:Button ID="btnTeste" runat="server"/>
     </asp:Panel>
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
@@ -139,7 +148,7 @@
                     </div>
                 </div>                 
        </asp:Panel> 
-
+    
     <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="Label2" CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
     <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style = "display:none">
          <div class="modal-content" style="background-color:red">
@@ -164,7 +173,7 @@
              </div>
          </div>
     </asp:Panel>
-
+    <%-- 
      <ajaxToolkit:ModalPopupExtender ID="ModalCorfirma" PopupControlID="PanelConfirma" TargetControlID="Label4" OkControlID="botaoOkModal_Confirmar"
           CancelControlID="botaoConfirma_Cancelar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
@@ -180,7 +189,7 @@
              </div>
          </div>
     </asp:Panel>
-
+--%>
 </asp:Content>
 
 
