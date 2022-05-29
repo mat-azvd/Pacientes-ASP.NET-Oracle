@@ -182,6 +182,84 @@ namespace Pacientes.DAL
             return obj;
         }
 
+        public ModeloAlergia GetAlergiaID(int codA)
+        {
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            ModeloAlergia obj = new ModeloAlergia();
+
+            cmd.CommandText = "select * from PACIENTES.ALERGIAS WHERE ID =:codA";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("codA", codA));
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
+
+                }
+
+            }
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
+            }
+
+            return obj;
+        }
+
+        public ModeloPacienteXAlergia GetAlergiaXPacienteID(int ID)
+        {
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            ModeloPacienteXAlergia obj = new ModeloPacienteXAlergia();
+
+            cmd.CommandText = "select * from PACIENTES.PACIENTES_ALERGIAS WHERE ID_PACIENTE =:ID";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("ID", ID));
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    obj.ID_PACIENTE = Convert.ToInt32(registro["ID_PACIENTE"]);
+                    obj.ID_ALERGIA = Convert.ToInt32(registro["ID_ALERGIA"]);
+
+                }
+
+            }
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
+            }
+
+            return obj;
+        }
+
         public void inserirPacienteXAlergia(ModeloPacienteXAlergia obj)
         {
 

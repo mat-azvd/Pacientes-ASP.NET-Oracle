@@ -116,28 +116,9 @@ namespace Pacientes.Paginas
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
             modalInserir.Show();
-        }
+        }    
 
-        protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-           /*DALPaciente dal = new DALPaciente();
-    
-            txtEstado.DataSource = dal.ListarEstados();
-            txtEstado.DataBind();
-           */
-        }
 
-        protected void txtAlergia_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            /*
-            DALalergia dal = new DALalergia();
-
-            txtAlergia.DataSource = dal.ListarAlergias();
-            txtAlergia.DataBind();
-            */
-        }
-
-      
         protected void botaoOk_Fechar(object sender, EventArgs e)
         {
 
@@ -147,7 +128,44 @@ namespace Pacientes.Paginas
 
         protected void GridViewPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            int linha = GridViewPacientes.SelectedIndex;
+            string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
+
+            DALPaciente dal = new DALPaciente();
+            DALalergia dal2 = new DALalergia();
+            ModeloAlergia obj2 = new ModeloAlergia();
+            ModeloPaciente obj = new ModeloPaciente();
+            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+
+            ModeloPaciente objP = dal.GetRegistro(cod);
+
+            int codAP = objP.ID;
+
+            ModeloPacienteXAlergia objAP = dal2.GetAlergiaXPacienteID(codAP);
+
+            int codA = objAP.ID_ALERGIA;
+
+            ModeloAlergia objA = dal2.GetAlergiaID(codA);
+
+
+
+            txtEditarNome.Text = Convert.ToString(objP.nome);
+            txtEditarCpf.Text = Convert.ToString(objP.cpf);
+            txtEditarSexo.Text = Convert.ToString(objP.sexo);
+            txtEditarNasci.Text = Convert.ToString(objP.Data_Nascimento);
+            txtEditarRua.Text = Convert.ToString(objP.Rua);
+            txtEditarNumero.Text = Convert.ToString(objP.Numero);
+            txtEditarCidade.Text = Convert.ToString(objP.Cidade);
+            txtEditarEstado.Text = Convert.ToString(objP.Estado);
+            txtEditarComplemento.Text = Convert.ToString(objP.Complemento);
+            txtEditarTelefone.Text = Convert.ToString(objP.telefone);
+            txtEditarEmail.Text = Convert.ToString(objP.email);
+            txtEditarEstadoCivil.Text = Convert.ToString(objP.Estado_Civil);
+            txtEditarMae.Text = Convert.ToString(objP.Nome_Mae);
+            txtEditarAlergia.Text = Convert.ToString(objA.nome_alergia);
+
+            modalEditar.Show();
+
         }
         protected void GridViewPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -193,5 +211,46 @@ namespace Pacientes.Paginas
         {
             ModalPopupExtender1.Show();
         }
+
+
+        protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            /*DALPaciente dal = new DALPaciente();
+
+             txtEstado.DataSource = dal.ListarEstados();
+             txtEstado.DataBind();
+            */
+        }
+
+        protected void txtEditarEstado_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            /*DALPaciente dal = new DALPaciente();
+
+             txtEstado.DataSource = dal.ListarEstados();
+             txtEstado.DataBind();
+            */
+        }
+
+
+        protected void txtAlergia_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            /*
+            DALalergia dal = new DALalergia();
+
+            txtAlergia.DataSource = dal.ListarAlergias();
+            txtAlergia.DataBind();
+            */
+        }
+
+        protected void txtEditarAlergia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            DALalergia dal = new DALalergia();
+
+            txtAlergia.DataSource = dal.ListarAlergias();
+            txtAlergia.DataBind();
+            */
+        }
+
     }
 }

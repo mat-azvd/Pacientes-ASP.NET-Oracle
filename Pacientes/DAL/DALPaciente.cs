@@ -163,8 +163,16 @@ namespace Pacientes.DAL
                     obj.nome = Convert.ToString(registro["nome"]);
                     obj.cpf = Convert.ToString(registro["cpf"]);
                     obj.sexo = Convert.ToString(registro["sexo"]);
+                    obj.telefone = Convert.ToString(registro["telefone"]);
                     obj.email = Convert.ToString(registro["email"]);
-                    
+                    obj.Data_Nascimento = Convert.ToString(registro["Data_Nascimento"]);
+                    obj.Nome_Mae = Convert.ToString(registro["Nome_Mae"]);
+                    obj.Estado_Civil = Convert.ToString(registro["Estado_Civil"]);
+                    obj.Rua = Convert.ToString(registro["Rua"]);
+                    obj.Estado = Convert.ToString(registro["Estado"]);
+                    obj.Cidade = Convert.ToString(registro["Cidade"]);
+                    obj.Numero = Convert.ToString(registro["Numero"]);
+                    obj.Complemento = Convert.ToString(registro["Complemento"]);
 
                 }
             }

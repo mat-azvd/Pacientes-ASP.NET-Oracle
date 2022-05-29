@@ -27,7 +27,7 @@
                 BackColor="White" BorderColor="black" BorderStyle="Solid" 
                 BorderWidth="1px" CellPadding="15" ForeColor="Black" 
                 GridLines="Both" AllowPaging="True" 
-               OnPageIndexChanging="GridViewPacientes_PageIndexChanging" >
+               OnPageIndexChanging="GridViewPacientes_PageIndexChanging" OnSelectedIndexChanged="GridViewPacientes_SelectedIndexChanged1" >
         
                 <Columns>
                     <asp:BoundField HeaderText="Nome" DataField="nome" />
@@ -85,11 +85,7 @@
                                 <td><label>Sexo</label></td>
                                 <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox>
-                                    
-                                </td> 
-                                    
-                                
+                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox></td>                                                                  
                             </tr>
 
                             <tr>                  
@@ -190,7 +186,86 @@
          </div>
     </asp:Panel>
   
+    <%-- MODAL EDITAR --%>
 
+    <ajaxToolkit:ModalPopupExtender ID="ModalEditarPaciente" PopupControlID="PanelEditarPaciente" TargetControlID="lblabel" CancelControlID="btnModalEditarFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+         <asp:Panel ID="PanelEditarPaciente" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
+                <div class="modal-content" style="background-color:aqua">
+                    <div class="modal-header">                  
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>                                
+                                <td><label>Nome</label></td>
+                                <td><asp:TextBox  id="txtEditarNome" type="text" runat="server"> </asp:TextBox></td>                                    
+                                <td><label>CPF</label></td>
+                                <td><asp:TextBox  ID="txtEditarCpf" runat="server" > </asp:TextBox>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td><label>Sexo</label></td>
+                                <td><asp:TextBox id="txtEditarSexo" runat="server"> </asp:TextBox></td>
+                                <td><label>Data de Nascimento</label></td>
+                                <td><asp:TextBox  id="txtEditarNasci" runat="server"> </asp:TextBox></td>                                                                  
+                            </tr>
+
+                            <tr>                  
+                                <td><label>Rua</label></td>
+                                <td><asp:TextBox  id="txtEditarRua" runat="server"> </asp:TextBox></td>
+                                
+                                <td><label>Numero</label></td>
+                                <td><asp:TextBox  id="txtEditarNumero" runat="server"> </asp:TextBox></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><label>Cidade</label></td>
+                                <td><asp:TextBox  id="txtEditarCidade" runat="server"> </asp:TextBox></td>
+                                
+                                <td><label>Estado</label></td>
+                                <td><asp:DropDownList ID="txtEditarEstado" runat="server" DataTextField="descricao" DataValueField="descricao" OnSelectedIndexChanged="txtEditarEstado_SelectedIndexChanged1" Width="150px" >
+                                    <asp:ListItem Selected="True"></asp:ListItem>
+                                    </asp:DropDownList></td>
+                                    
+                                <%-- <td><asp:TextBox  id="txtEstado" runat="server"> </asp:TextBox></td> OnSelectedIndexChanged="txtEstado_SelectedIndexChanged"--%>
+                                
+                                                                    
+                            </tr>
+
+                            <tr>
+                                <td><label>Complemento</label></td>
+                                <td><asp:TextBox  id="txtEditarComplemento" runat="server"> </asp:TextBox></td>
+                                <td><label>Telefone</label></td>
+                                <td><asp:TextBox  id="txtEditarTelefone" runat="server"> </asp:TextBox></td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td><label>Email</label></td>
+                                <td><asp:TextBox  id="txtEditarEmail" runat="server"> </asp:TextBox></td>
+                                
+                                <td><label>Estado Civil</label></td>
+                                <td><asp:TextBox  id="txtEditarEstadoCivil" runat="server"> </asp:TextBox></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><label>Nome da Mãe</label></td>
+                                <td><asp:TextBox  id="txtEditarMae" runat="server"> </asp:TextBox></td>
+                                
+                                <td><label>Alergias</label></td>
+                                <td><asp:DropDownList ID="txtEditarAlergia" runat="server" DataTextField="nome_alergia" DataValueField="nome_alergia" OnSelectedIndexChanged="txtEditarAlergia_SelectedIndexChanged" Width="150px">
+                                </asp:DropDownList></td>
+                               
+                            </tr>                       
+
+                        </table>
+                        </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnModalEditarFechar" CssClass="botaoStyle" runat="server" Text="Fechar" />
+                        <asp:Button ID="btnModalEditar" CssClass="botaoStyle" runat="server" Text="Inserir"  /> <%--OnClick="botaoInserir_Click1" --%>
+                    </div>
+                </div>                 
+       </asp:Panel>
     
 </asp:Content>
 
