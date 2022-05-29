@@ -126,7 +126,7 @@ namespace Pacientes.Paginas
             Response.Redirect("~/Paginas/Pacientes.aspx");
         }
 
-        protected void GridViewPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridViewPacientes_SelectedIndexChanged1(object sender, EventArgs e)
         {
             int linha = GridViewPacientes.SelectedIndex;
             string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
@@ -147,6 +147,10 @@ namespace Pacientes.Paginas
 
             ModeloAlergia objA = dal2.GetAlergiaID(codA);
 
+            txtEditarAlergia.DataSource = dal2.ListarAlergias();
+            txtEditarAlergia.DataBind();
+            txtEditarEstado.DataSource = dal.ListarEstados();
+            txtEditarEstado.DataBind();
 
 
             txtEditarNome.Text = Convert.ToString(objP.nome);
@@ -164,7 +168,7 @@ namespace Pacientes.Paginas
             txtEditarMae.Text = Convert.ToString(objP.Nome_Mae);
             txtEditarAlergia.Text = Convert.ToString(objA.nome_alergia);
 
-            modalEditar.Show();
+            ModalEditarPaciente.Show();
 
         }
         protected void GridViewPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -184,6 +188,18 @@ namespace Pacientes.Paginas
         {
 
             DALPaciente dal = new DALPaciente();
+            DALalergia dal2 = new DALalergia();
+            ModeloAlergia obj2 = new ModeloAlergia();
+            ModeloPaciente obj = new ModeloPaciente();
+            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+
+            ModeloPaciente objP = dal.GetRegistro(labelCOD.Text);
+
+            int codAP = objP.ID;
+
+            ModeloPacienteXAlergia objAP = dal2.GetAlergiaXPacienteID(codAP);
+
+            dal2.DeletePacienteXAlergia(objAP.ID_PACIENTE);
             dal.DeletePaciente(labelCOD.Text);         
             AtualizaLista();
             Response.Redirect("~/Paginas/Pacientes.aspx");

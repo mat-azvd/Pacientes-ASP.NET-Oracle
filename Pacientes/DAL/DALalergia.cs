@@ -323,6 +323,44 @@ namespace Pacientes.DAL
                 con.Close();
             }
 
+
         }
+
+        public void DeletePacienteXAlergia(int ID)
+        {
+
+            //Criar um objeto de conexão
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+
+
+
+            //Executar um comando no banco
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "Delete from PACIENTES.PACIENTES_ALERGIAS where ID_PACIENTE=:" + ID.ToString();
+
+                cmd.Parameters.Add(new OracleParameter("ID", ID));
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+
+        }
+
     }
 }

@@ -27,7 +27,8 @@
                 BackColor="White" BorderColor="black" BorderStyle="Solid" 
                 BorderWidth="1px" CellPadding="15" ForeColor="Black" 
                 GridLines="Both" AllowPaging="True" 
-               OnPageIndexChanging="GridViewPacientes_PageIndexChanging" OnSelectedIndexChanged="GridViewPacientes_SelectedIndexChanged1" >
+               OnPageIndexChanging="GridViewPacientes_PageIndexChanging" 
+               OnSelectedIndexChanged="GridViewPacientes_SelectedIndexChanged1" >
         
                 <Columns>
                     <asp:BoundField HeaderText="Nome" DataField="nome" />
@@ -224,7 +225,7 @@
                                 
                                 <td><label>Estado</label></td>
                                 <td><asp:DropDownList ID="txtEditarEstado" runat="server" DataTextField="descricao" DataValueField="descricao" OnSelectedIndexChanged="txtEditarEstado_SelectedIndexChanged1" Width="150px" >
-                                    <asp:ListItem Selected="True"></asp:ListItem>
+                                    <%-- <asp:ListItem Selected="True"></asp:ListItem> --%>
                                     </asp:DropDownList></td>
                                     
                                 <%-- <td><asp:TextBox  id="txtEstado" runat="server"> </asp:TextBox></td> OnSelectedIndexChanged="txtEstado_SelectedIndexChanged"--%>
