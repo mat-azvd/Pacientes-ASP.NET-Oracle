@@ -362,5 +362,80 @@ namespace Pacientes.DAL
 
         }
 
+        public void AlterarAlergiaXPaciente(ModeloPacienteXAlergia objAP)
+        {
+
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+
+
+            //Executar um comando no banco
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE PACIENTES.PACIENTES_ALERGIAS set ID_ALERGIA=:ID_ALERGIA where ID_PACIENTE=:ID_PACIENTE";
+
+                cmd.Parameters.Add("ID_ALERGIA", objAP.ID_ALERGIA);
+                cmd.Parameters.Add("ID_PACIENTE", objAP.ID_PACIENTE);
+
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        public ModeloAlergia GetNovaAlergia(String nome_alergia)
+        {
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            ModeloAlergia obj = new ModeloAlergia();
+
+            cmd.CommandText = "select * from PACIENTES.ALERGIAS WHERE NOME_ALERGIA =:nome_alergia";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("nome_alergia", nome_alergia));
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
+
+                }
+
+            }
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
+            }
+
+            return obj;
+        }
+
     }
 }

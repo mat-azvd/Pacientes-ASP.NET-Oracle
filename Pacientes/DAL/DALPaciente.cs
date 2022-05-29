@@ -235,7 +235,7 @@ namespace Pacientes.DAL
             try
             {
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE Pacientes.Pacientes set nome=:nome,cpf=:cpf,sexo=:sexo,telefone=:telefone,email=:email,Data_Nascimento=:Data_Nascimento,Nome_Mae=:Nome_Mae,Estado_Civil=:Estado_Civil,Rua=:Rua,Estado=:Estado,Cidade=:Cidade,Numero=:Numero,Complemento=:Complemento) where ID=:ID";
+                cmd.CommandText = "update Pacientes.Pacientes set nome=:nome, cpf=:cpf, sexo=:sexo, telefone=:telefone, email=:email, Data_Nascimento=:Data_Nascimento, Nome_Mae=:Nome_Mae, Estado_Civil=:Estado_Civil, Rua=:Rua, Estado=:Estado, Cidade=:Cidade, Numero=:Numero, Complemento=:Complemento where ID=:ID";
 
                 cmd.Parameters.Add("ID", obj.ID);
                 cmd.Parameters.Add("nome", obj.nome);

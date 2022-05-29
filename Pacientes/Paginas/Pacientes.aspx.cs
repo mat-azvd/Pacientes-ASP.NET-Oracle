@@ -194,10 +194,13 @@ namespace Pacientes.Paginas
             ModeloAlergia objA = dal2.GetAlergiaID(codA);
 
             string nome_alergia = txtEditarAlergia.Text.Trim();
+
+            ModeloAlergia novaID_Alergia = dal2.GetNovaAlergia(nome_alergia);
+            
             string nome = txtEditarNome.Text.Trim();
             string cpf = txtEditarCpf.Text.Trim();
 
-            objA.nome_alergia = Convert.ToString(nome_alergia);
+            objAP.ID_ALERGIA = Convert.ToInt32(novaID_Alergia.ID);
             objP.nome = Convert.ToString(nome);
             objP.cpf = Convert.ToString(cpf);
             objP.sexo = Convert.ToString(txtEditarSexo.Text);
@@ -213,7 +216,9 @@ namespace Pacientes.Paginas
             objP.Complemento = Convert.ToString(txtEditarComplemento.Text);
 
             dal.AlterarPaciente(obj);
-
+            dal2.AlterarAlergiaXPaciente(objAP);
+            AtualizaLista();
+            Response.Redirect("~/Paginas/Pacientes.aspx");
         }
           
         protected void GridViewPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
