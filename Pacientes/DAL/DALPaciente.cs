@@ -33,7 +33,7 @@ namespace Pacientes.DAL
             try
             {
 
-                cmd.CommandText = "Insert into Pacientes.Pacientes (nome,cpf,sexo,telefone,email,Data_Nascimento,Nome_Mae,Estado_Civil,Rua,Estado,Cidade,Numero,Complemento) values (@nome,@cpf,@sexo,@telefone,@email,@Data_Nascimento,@Nome_Mae,@Estado_Civil,@Rua,@Estado,@Cidade,@Numero,@Complemento)";
+                cmd.CommandText = "Insert into Pacientes.Pacientes (nome,cpf,sexo,telefone,email,Data_Nascimento,Nome_Mae,Estado_Civil,Rua,Estado,Cidade,Numero,Complemento) values (:nome,:cpf,:sexo,:telefone,:email,:Data_Nascimento,:Nome_Mae,:Estado_Civil,:Rua,:Estado,:Cidade,:Numero,:Complemento)";
                 cmd.Parameters.Add("nome", obj.nome);
                 cmd.Parameters.Add("cpf", obj.cpf);
                 cmd.Parameters.Add("sexo", obj.sexo);

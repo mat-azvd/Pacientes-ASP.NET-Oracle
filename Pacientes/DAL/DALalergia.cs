@@ -76,6 +76,35 @@ namespace Pacientes.DAL
 
         }
 
+        public OracleDataReader ListAlergias()
+        {
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.ALERGIAS";
+
+            cmd.BindByName = true;
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                return registro;
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+        }
+
         public List<ModeloAlergia> ListaDeAlergias()
         {
             List<ModeloAlergia> ListaAlergia = new List<ModeloAlergia>();

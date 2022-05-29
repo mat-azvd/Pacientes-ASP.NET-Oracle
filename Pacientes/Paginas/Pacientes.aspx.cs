@@ -22,7 +22,9 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             ListaPacientes = new List<ModeloPaciente>();
-            ListaPacientes = dal.Listar();       
+            ListaPacientes = dal.Listar();  
+            
+
         }
 
         /*protected void Button_Modal_inserir(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace Pacientes.Paginas
         protected void botaoInserir_Click1(object sender, EventArgs e)
         {
             string nome = Convert.ToString(txtNome.Text);
+            /*
+            
             string cpf = Convert.ToString(txtCpf.Text);
             string sexo = Convert.ToString(txtSexo.Text);
             string telefone = Convert.ToString(txtTelefone.Text);
@@ -54,11 +58,28 @@ namespace Pacientes.Paginas
             string cidade = Convert.ToString(txtCidade.Text);
             string numero = Convert.ToString(txtNumero.Text);
             string complemento = Convert.ToString(txtComplemento.Text);
+            string nome = Convert.ToString(txtNome.Text);
+            */
 
             DALPaciente dal = new DALPaciente();
+            DALalergia dal2 = new DALalergia();
+            ModeloAlergia obj2 = new ModeloAlergia();
             ModeloPaciente obj = new ModeloPaciente();
 
-
+            obj.nome = nome.Trim();
+            obj.cpf = Convert.ToString(txtCpf.Text);
+            obj.sexo = Convert.ToString(txtSexo.Text);
+            obj.telefone = Convert.ToString(txtTelefone.Text);
+            obj.email = Convert.ToString(txtEmail.Text);
+            obj.Data_Nascimento = Convert.ToString(txtData_nascimento.Text);
+            obj.Nome_Mae = Convert.ToString(txtNome_mae.Text);
+            obj2.nome_alergia = Convert.ToString(txtAlergia.Text);
+            obj.Estado_Civil = Convert.ToString(txtEstado_civil.Text);
+            obj.Rua = Convert.ToString(txtRua.Text);
+            obj.Estado = Convert.ToString(txtEstado.Text);
+            obj.Cidade = Convert.ToString(txtCidade.Text);
+            obj.Numero = Convert.ToString(txtNumero.Text);
+            obj.Complemento = Convert.ToString(txtComplemento.Text);
 
         }
 
@@ -70,6 +91,16 @@ namespace Pacientes.Paginas
 
             txtAlergia.DataSource = dal2.ListarAlergias();
             txtAlergia.DataBind();
+
+            if (dal2.ListAlergias().HasRows)
+            {
+                txtAlergia1.DataSource = dal2.ListAlergias();
+                txtAlergia1.DataTextField = "nome_alergia";
+                txtAlergia1.DataValueField= "nome_alergia";
+                txtAlergia1.DataBind();
+            }
+
+
 
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
@@ -92,8 +123,16 @@ namespace Pacientes.Paginas
             txtAlergia.DataBind();
         }
 
+        protected void txtAlergia_SelectedIndexChanged2(object sender, EventArgs e)
+        {
+            DALalergia dal = new DALalergia();
+
+            txtAlergia1.DataSource = dal.ListarAlergias();
+            txtAlergia1.DataBind();
+        }
         
 
-        
+
+
     }
 }
