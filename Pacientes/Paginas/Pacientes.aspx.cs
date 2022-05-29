@@ -159,9 +159,13 @@ namespace Pacientes.Paginas
         {
             
         }
-        protected void GridViewPacientes_RowDeleting(object sender, EventArgs e)
+        protected void GridViewPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
+            int linha = Convert.ToInt32(e.RowIndex);
+            string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
+            DALPaciente dal = new DALPaciente();
+            dal.DeletePaciente(cod);
+            AtualizaLista();
         }
   
 
@@ -172,5 +176,7 @@ namespace Pacientes.Paginas
             GridViewPacientes.DataSource = dal.Listar();
             GridViewPacientes.DataBind();
         }
+
+       
     }
 }

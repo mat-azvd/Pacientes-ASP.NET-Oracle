@@ -181,6 +181,40 @@ namespace Pacientes.DAL
         }
 
 
+        public void DeletePaciente(String cpf)
+        {
+
+           
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+            
+
+            //Executar um comando no banco
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "Delete from PACIENTES.PACIENTES where cpf =:cpf";
+
+                cmd.Parameters.Add(new OracleParameter("cpf", cpf));
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
 
     }
 }
