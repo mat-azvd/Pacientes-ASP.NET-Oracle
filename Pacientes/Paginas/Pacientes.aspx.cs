@@ -166,8 +166,10 @@ namespace Pacientes.Paginas
         {
 
             DALPaciente dal = new DALPaciente();
-            dal.DeletePaciente(labelCOD.Text);
+            dal.DeletePaciente(labelCOD.Text);         
             AtualizaLista();
+            Response.Redirect("~/Paginas/Pacientes.aspx");
+
 
         }
         /*
