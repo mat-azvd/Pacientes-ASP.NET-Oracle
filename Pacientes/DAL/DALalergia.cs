@@ -151,22 +151,23 @@ namespace Pacientes.DAL
 
             ModeloAlergia obj = new ModeloAlergia();
 
+            cmd.CommandText = "select * from PACIENTES.ALERGIAS WHERE nome_alergia =:nome_alergia";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("nome_alergia", nome_alergia));
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
             try
-            {
-                cmd.CommandText = "select * from PACIENTES.ALERGIAS WHERE nome_alergia=:nome_alergia";
-
-                cmd.BindByName = true;
-
-                cmd.Parameters.Add(new OracleParameter("nome_alergia", nome_alergia));
-
-                cmd.Connection = con;
-                con.Open();
-
-                OracleDataReader registro = cmd.ExecuteReader();
+            {            
 
                 if (registro.HasRows)
                 {
-
+                    registro.Read();
                     obj.ID = Convert.ToInt32(registro["ID"]);
                     obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
 
@@ -198,7 +199,7 @@ namespace Pacientes.DAL
                 cmd.Connection = con;
                 con.Open();
                 obj.ID_PACIENTE = Convert.ToInt32(cmd.ExecuteScalar());
-                obj.ID_ALERGIA = Convert.ToInt32(cmd.ExecuteScalar());
+                //obj.ID_ALERGIA = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
             catch (Exception erro)
