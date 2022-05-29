@@ -11,7 +11,7 @@ namespace Pacientes.Paginas
 {
     public partial class Pacientes : System.Web.UI.Page
     {
-        protected List<ModeloPaciente> ListaPacientes = new List<ModeloPaciente>();
+        /*protected List<ModeloPaciente> ListaPacientes = new List<ModeloPaciente>();*/
         protected void Page_Load(object sender, EventArgs e)
         {
             AtualizaLista();
@@ -21,8 +21,8 @@ namespace Pacientes.Paginas
         {
 
             DALPaciente dal = new DALPaciente();
-            ListaPacientes = new List<ModeloPaciente>();
-            ListaPacientes = dal.Listar();
+            /*ListaPacientes = new List<ModeloPaciente>();
+            ListaPacientes = dal.Listar();*/
             GridViewPacientes.DataSource = dal.Listar();
             GridViewPacientes.DataBind();
         }
@@ -122,7 +122,6 @@ namespace Pacientes.Paginas
             }
             */
 
-
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
             modalInserir.Show();
@@ -163,11 +162,28 @@ namespace Pacientes.Paginas
         {
             int linha = Convert.ToInt32(e.RowIndex);
             string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
-            DALPaciente dal = new DALPaciente();
-            dal.DeletePaciente(cod);
-            AtualizaLista();
+
+            labelCOD.Text = cod;
+            ModalCorfirma.Show();
+
+            
         }
-  
+
+        protected void botaoConfirma_Confirmar(object sender, EventArgs e)
+        {
+
+            DALPaciente dal = new DALPaciente();
+            dal.DeletePaciente(labelCOD.Text);
+            AtualizaLista();
+
+        }
+        protected void botaoConfirma_Cancelar(object sender, EventArgs e)
+        {
+
+            AtualizaLista();
+            Response.Redirect("~/Paginas/Pacientes.aspx");
+        }
+        
 
         protected void GridViewPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

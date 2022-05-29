@@ -5,84 +5,18 @@
     
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <asp:ScriptManager runat="server"></asp:ScriptManager>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css"/>
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js" ></script> 
-   
+     <asp:ScriptManager runat="server"></asp:ScriptManager>   
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
-
-    
-   
-    <%--<script>
-        $(function () {
-            $("#modal-inserir").dialog({
-                autoOpen: false,
-                show: {
-                    effect: "blind",
-                    duration: 1000
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 1000
-                }
-            });
-            $("#abrir-modal").click(function () {
-                $("#modal-inserir").dialog("open");
-            });
-        });
-    </script>
-    --%>
-
     <asp:Panel HorizontalAlign="center" runat="server">
 
         <div id="titulo">
             <asp:Label runat="server">LOGADO</asp:Label>
-        </div>
+        </div>     
+       
 
-        <div id="tabela" class="divTabela" > 
-            <table class="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;" >
-                <thead class="thead-dark" style="background-color:black; color:white">
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>botao1</th>
-                        <th>botao2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <%
-                    foreach (var obj in ListaPacientes) {
-                        %>
-                    <tr >
-                        <td ><%=obj.nome%></td>
-                        <td ><%=obj.cpf%></td>
-                        <td ><button class="btn border-primary">Detalhes</button></td>
-                        <td ><button value="<%=obj.cpf%>" class="btn-danger">Excluir</button></td>
-                        
-                    </tr>
-                    <%} %>
-                </tbody>
-           </table>
-        </div>
-        <div>                
-            <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
-            <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
-        </div>
-
-         <div id="formTabela"  >
-            <asp:Label ID="tituloProduto" CssClass="LabelTitulo" runat="server" 
-                Text="Produtos"></asp:Label>
-            <br />
+         <div id="formTabela" >
             <asp:GridView ID="GridViewPacientes" HorizontalAlign="Center" 
                 CssClass="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;"
                 runat="server" AutoGenerateColumns="False"
@@ -105,17 +39,22 @@
                 <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
       
             </asp:GridView> 
-            <br />
+          
                 <%-- <asp:Button ID="Button1" CssClass="botaoInserir" runat="server" Text="Inserir" OnClick="botaoModalInserir_Click" />
                 <asp:Button ID="ButtonDownloadPDF" CssClass="botaoPDF" runat="server" Text="Download PFD" OnClick="ButtonDownloadPDF_Click" />--%>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+           
+              <div>                
+            <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
+            <asp:Label ID="lblabel"  runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label2"  runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+        </div>
         </div>
 
     </asp:Panel>
 
-         <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" 
-          CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-
+         <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
          <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style = "display:none"  runat="server">                         
                 <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
@@ -198,13 +137,10 @@
                         <asp:Button ID="botaoModalFechar1" CssClass="botaoStyle" runat="server" Text="Fechar" />
                         <asp:Button ID="botaoInserir" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserir_Click1" />
                     </div>
-                </div>
-                 
+                </div>                 
        </asp:Panel> 
 
-    <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="lblabel" 
-          CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-
+    <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="Label2" CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
     <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style = "display:none">
          <div class="modal-content" style="background-color:red">
              <div id="header1" class="modal-header">
@@ -216,9 +152,7 @@
          </div>
     </asp:Panel>
 
-     <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="lblabel" 
-         OkControlID="botaoOkModalFechar"
-          CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+     <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="Label3" OkControlID="botaoOkModalFechar" CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style = "display:none">
          <div class="modal-content" style="background-color:green">
@@ -227,6 +161,22 @@
              </div>
              <div id="footer2" class="modal-footer">
                  <asp:Button ID="botaoOkModalFechar" CssClass="botaoStyle" runat="server" Text="Fechar" OnClick="botaoOk_Fechar"/>
+             </div>
+         </div>
+    </asp:Panel>
+
+     <ajaxToolkit:ModalPopupExtender ID="ModalCorfirma" PopupControlID="PanelConfirma" TargetControlID="Label4" OkControlID="botaoOkModal_Confirmar"
+          CancelControlID="botaoConfirma_Cancelar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel runat="server" ID="PanelConfirma" CssClasss="PanelErro" style = "display:none">
+         <div class="modal-content" style="background-color:green">
+             <div id="header3" class="modal-header">
+                 <h4 class="modal-title">Deseja excluir paciente?</h4>
+                 <asp:Label id="labelCOD" Text=""  runat="server"></asp:Label>
+             </div>
+             <div id="footer3" class="modal-footer">
+                 <asp:Button  ID="Button2" CssClass="btn-success" runat="server" Text="Confirmar" OnClick="botaoConfirma_Confirmar"/>
+                 <asp:Button ID="Button1" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="botaoConfirma_Cancelar"/>
              </div>
          </div>
     </asp:Panel>
