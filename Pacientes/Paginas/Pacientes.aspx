@@ -64,7 +64,7 @@
     </asp:Panel>
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style = "display:none"  runat="server">                         
+         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
                 <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
@@ -150,7 +150,7 @@
        </asp:Panel> 
     
     <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="Label2" CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-    <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style = "display:none">
+    <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style="display:none;">
          <div class="modal-content" style="background-color:red">
              <div id="header1" class="modal-header">
                  <h4 class="modal-title">Paciente ja cadastrado</h4>
@@ -163,7 +163,7 @@
 
      <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="Label3" OkControlID="botaoOkModalFechar" CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
-    <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style = "display:none">
+    <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style="display:none;">
          <div class="modal-content" style="background-color:green">
              <div id="header2" class="modal-header">
                  <h4 class="modal-title">Cadastrado com Sucesso!</h4>
@@ -173,23 +173,24 @@
              </div>
          </div>
     </asp:Panel>
-    <%-- 
-     <ajaxToolkit:ModalPopupExtender ID="ModalCorfirma" PopupControlID="PanelConfirma" TargetControlID="Label4" OkControlID="botaoOkModal_Confirmar"
-          CancelControlID="botaoConfirma_Cancelar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+  
+    <ajaxToolkit:ModalPopupExtender ID="ConfirmaModal" PopupControlID="PanelConfirmaModal" TargetControlID="Label4" CancelControlID="botaoCancelar_Cancelar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
-    <asp:Panel runat="server" ID="PanelConfirma" CssClasss="PanelErro" style = "display:none">
+    <asp:Panel runat="server" ID="PanelConfirmaModal" CssClasss="PanelErro" style="display:none;">
          <div class="modal-content" style="background-color:green">
              <div id="header3" class="modal-header">
                  <h4 class="modal-title">Deseja excluir paciente?</h4>
-                 <asp:Label id="labelCOD" Text=""  runat="server"></asp:Label>
+                   <asp:Label id="labelNomeCOD" Text="" runat="server"></asp:Label>
+                  <asp:Label Visible="false" id="labelCOD" Text="" runat="server"></asp:Label>
              </div>
              <div id="footer3" class="modal-footer">
-                 <asp:Button  ID="Button2" CssClass="btn-success" runat="server" Text="Confirmar" OnClick="botaoConfirma_Confirmar"/>
-                 <asp:Button ID="Button1" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="botaoConfirma_Cancelar"/>
+                 <asp:Button ID="botaoOkModal_Confirma" CssClass="btn-success" runat="server" Text="Confirmar" onClick="botaoConfirma_Confirmar"/>
+                 <asp:Button ID="botaoCancelar_Cancelar" CssClass="btn-danger" runat="server" Text="Cancelar" />
              </div>
          </div>
     </asp:Panel>
---%>
+  
+    
 </asp:Content>
 
 

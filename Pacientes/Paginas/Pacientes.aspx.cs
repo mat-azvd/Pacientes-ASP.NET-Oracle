@@ -153,13 +153,15 @@ namespace Pacientes.Paginas
         {
             int linha = Convert.ToInt32(e.RowIndex);
             string cod = Convert.ToString(GridViewPacientes.Rows[linha].Cells[1].Text);
-            /*
+            string NomeCOD = Convert.ToString(GridViewPacientes.Rows[linha].Cells[0].Text);
+
             labelCOD.Text = cod;
-            ModalCorfirma.Show();
-            */
+            labelNomeCOD.Text = NomeCOD;
+            ConfirmaModal.Show();
+            
             
         }
-        /*
+        
         protected void botaoConfirma_Confirmar(object sender, EventArgs e)
         {
 
@@ -168,7 +170,8 @@ namespace Pacientes.Paginas
             AtualizaLista();
 
         }
-        protected void botaoConfirma_Cancelar(object sender, EventArgs e)
+        /*
+        protected void botaoConfirma_fechar(object sender, EventArgs e)
         {
 
             AtualizaLista();
