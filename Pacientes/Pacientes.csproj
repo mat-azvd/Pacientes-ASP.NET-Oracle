@@ -191,6 +191,7 @@
     <Compile Include="DAL\DALUsuario.cs" />
     <Compile Include="Modelo\ModeloAlergia.cs" />
     <Compile Include="Modelo\ModeloPaciente.cs" />
+    <Compile Include="Modelo\ModeloPacienteXAlergia.cs" />
     <Compile Include="Modelo\ModeloUsuario.cs" />
     <Compile Include="Paginas\Alergia.aspx.cs">
       <DependentUpon>Alergia.aspx</DependentUpon>

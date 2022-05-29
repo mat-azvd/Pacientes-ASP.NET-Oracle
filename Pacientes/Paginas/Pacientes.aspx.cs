@@ -65,6 +65,7 @@ namespace Pacientes.Paginas
             DALalergia dal2 = new DALalergia();
             ModeloAlergia obj2 = new ModeloAlergia();
             ModeloPaciente obj = new ModeloPaciente();
+            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
 
             obj.nome = nome.Trim();
             obj.cpf = Convert.ToString(txtCpf.Text);
@@ -81,6 +82,23 @@ namespace Pacientes.Paginas
             obj.Numero = Convert.ToString(txtNumero.Text);
             obj.Complemento = Convert.ToString(txtComplemento.Text);
 
+            ModeloPaciente comparar = dal.GetRegistro(obj.cpf);
+
+            if (comparar.cpf != null)
+            {
+                ErroModal.Show();
+            }
+            else
+            {
+                dal.inserir(obj);
+                dal2.GetAlergiaNome(obj2.nome_alergia);
+                dal.GetRegistro(obj.cpf);
+                obj3.ID_PACIENTE = obj.ID;
+                obj3.ID_ALERGIA = obj2.ID;
+                dal2.inserirPacienteXAlergia(obj3);
+                OkModal.Show();
+            }
+
         }
 
         protected void botaoModalInserir_Abrir(object sender, EventArgs e)
@@ -91,7 +109,7 @@ namespace Pacientes.Paginas
 
             txtAlergia.DataSource = dal2.ListarAlergias();
             txtAlergia.DataBind();
-
+            /*
             if (dal2.ListAlergias().HasRows)
             {
                 txtAlergia1.DataSource = dal2.ListAlergias();
@@ -99,7 +117,7 @@ namespace Pacientes.Paginas
                 txtAlergia1.DataValueField= "nome_alergia";
                 txtAlergia1.DataBind();
             }
-
+            */
 
 
             txtEstado.DataSource = dal.ListarEstados();
@@ -126,12 +144,17 @@ namespace Pacientes.Paginas
         protected void txtAlergia_SelectedIndexChanged2(object sender, EventArgs e)
         {
             DALalergia dal = new DALalergia();
-
+            /*
             txtAlergia1.DataSource = dal.ListarAlergias();
             txtAlergia1.DataBind();
+            */
         }
-        
+        protected void botaoOk_Fechar(object sender, EventArgs e)
+        {
 
+            AtualizaLista();
+            Response.Redirect("~/Paginas/Pacientes.aspx");
+        }
 
 
     }

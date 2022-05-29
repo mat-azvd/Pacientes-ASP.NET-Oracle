@@ -69,15 +69,6 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtCpf;
 
         /// <summary>
-        /// Controle txtCpf_MaskedEditExtender.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender txtCpf_MaskedEditExtender;
-
-        /// <summary>
         /// Controle txtSexo.
         /// </summary>
         /// <remarks>
@@ -202,5 +193,59 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button botaoInserir;
+
+        /// <summary>
+        /// Controle ErroModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ErroModal;
+
+        /// <summary>
+        /// Controle PanelErro.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelErro;
+
+        /// <summary>
+        /// Controle botaoModalErroFechar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botaoModalErroFechar;
+
+        /// <summary>
+        /// Controle OkModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender OkModal;
+
+        /// <summary>
+        /// Controle PanelOk.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelOk;
+
+        /// <summary>
+        /// Controle botaoOkModalFechar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botaoOkModalFechar;
     }
 }

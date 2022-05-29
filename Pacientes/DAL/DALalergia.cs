@@ -34,7 +34,7 @@ namespace Pacientes.DAL
 
                 cmd.CommandText = "Insert into PACIENTES.ALERGIAS (nome_alergia) values (:nome_alergia)";
                 cmd.Parameters.Add("nome_alergia", obj.nome_alergia);
-                
+
 
 
                 cmd.Connection = con;
@@ -166,17 +166,51 @@ namespace Pacientes.DAL
 
                 if (registro.HasRows)
                 {
+
+                    obj.ID = Convert.ToInt32(registro["ID"]);
                     obj.nome_alergia = Convert.ToString(registro["nome_alergia"]);
 
                 }
 
             }
-            catch (Exception erro){
-                throw new Exception(erro.Message);
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
             }
 
             return obj;
         }
 
+        public void inserirPacienteXAlergia(ModeloPacienteXAlergia obj)
+        {
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+            OracleCommand cmd = new OracleCommand();
+
+
+            try
+            {
+
+                cmd.CommandText = "Insert into PACIENTES.PACIENTES_ALERGIAS (ID_PACIENTE,ID_ALERGIA) values (:ID_PACIENTE,:ID_ALERGIA)";
+                cmd.Parameters.Add("ID_PACIENTE", obj.ID_PACIENTE);
+                cmd.Parameters.Add("ID_ALERGIA", obj.ID_ALERGIA);
+
+                cmd.Connection = con;
+                con.Open();
+                obj.ID_PACIENTE = Convert.ToInt32(cmd.ExecuteScalar());
+                obj.ID_ALERGIA = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+
+            catch (Exception erro)
+            {
+                new Exception("Nao Inserido: " + erro.Message);
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
     }
 }

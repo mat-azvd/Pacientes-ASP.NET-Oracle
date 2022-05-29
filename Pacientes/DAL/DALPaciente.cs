@@ -57,7 +57,7 @@ namespace Pacientes.DAL
 
             catch (Exception erro)
             {
-                new Exception(erro.Message);
+                throw new Exception(erro.Message);
             }
 
             finally

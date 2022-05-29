@@ -104,7 +104,8 @@ ControlToValidate="txtPassword" runat="server" />
 </div> --%>
     </asp:Panel>
 
-         <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+         <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" 
+          CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
          <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style = "display:none" runat="server">                         
                 <div class="modal-content" style="background-color:aqua">
@@ -120,7 +121,6 @@ ControlToValidate="txtPassword" runat="server" />
                                     
                                 <td><label>CPF</label></td>
                                 <td><asp:TextBox  ID="txtCpf" runat="server" > </asp:TextBox>
-                                    <ajaxToolkit:MaskedEditExtender ID="txtCpf_MaskedEditExtender" runat="server" BehaviorID="txtCpf_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="pt-br" CultureCurrencySymbolPlaceholder="pt-br" CultureDateFormat="pt-br" CultureDatePlaceholder="pt-br" CultureDecimalPlaceholder="pt-br" CultureThousandsPlaceholder="pt-br" CultureTimePlaceholder="pt-br"  Mask="999.999.999-99" TargetControlID="txtCpf" />
                                 </td> 
                               
                             </tr>
@@ -192,4 +192,36 @@ ControlToValidate="txtPassword" runat="server" />
                 </div>
                  
        </asp:Panel> 
+
+    <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="lblabel" 
+          CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style = "display:none">
+         <div class="modal-content" style="background-color:red">
+             <div id="header1">
+                 <h4 class="modal-title">Paciente ja cadastrado</h4>
+             </div>
+             <div id="footer1">
+                 <asp:Button ID="botaoModalErroFechar" CssClass="botaoStyle" runat="server" Text="Fechar" />
+             </div>
+         </div>
+    </asp:Panel>
+
+     <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="lblabel" 
+
+          CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style = "display:none">
+         <div class="modal-content" style="background-color:green">
+             <div id="header2">
+                 <h4 class="modal-title">Cadastrado com Sucesso!</h4>
+             </div>
+             <div id="footer2">
+                 <asp:Button ID="botaoOkModalFechar" CssClass="botaoStyle" runat="server" Text="Fechar" OnClick="botaoOk_Fechar"/>
+             </div>
+         </div>
+    </asp:Panel>
+
 </asp:Content>
+
+
