@@ -130,28 +130,24 @@ namespace Pacientes.Paginas
 
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            DALPaciente dal = new DALPaciente();
+           /* DALPaciente dal = new DALPaciente();
     
             txtEstado.DataSource = dal.ListarEstados();
             txtEstado.DataBind();
+           */
         }
 
         protected void txtAlergia_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            /*
             DALalergia dal = new DALalergia();
 
             txtAlergia.DataSource = dal.ListarAlergias();
             txtAlergia.DataBind();
-        }
-
-        protected void txtAlergia_SelectedIndexChanged2(object sender, EventArgs e)
-        {
-            DALalergia dal = new DALalergia();
-            /*
-            txtAlergia1.DataSource = dal.ListarAlergias();
-            txtAlergia1.DataBind();
             */
         }
+
+      
         protected void botaoOk_Fechar(object sender, EventArgs e)
         {
 
