@@ -53,6 +53,12 @@
     display: flex;
 }
 
-.PanelModalInserir{
-   
+.btnEntrar {
+    border: solid;
+    border-width: 2px;
+    border-color: gray;
 }
+
+    .btnEntrar:hover {
+        border-color: black;
+    }

@@ -44,8 +44,8 @@ namespace Pacientes.Paginas
                 else
                 {
 
-                    String msg = "<script> alert('Login ou senha invalidos!!!!'); </script>";
-                    Response.Write(msg);
+                    String msg = "<script> alert('Login ou senha invalidos!!!!'); </script>";                   
+                    Response.Write(msg);                  
                     //Response.Write("<script> alert('E-mail ou senha incorretos!');</script>");
 
                 }
@@ -54,8 +54,9 @@ namespace Pacientes.Paginas
 
             else
             {
-                String msg = "<script> alert('Login ou senha invalidos!!!!'); </script>";
+                String msg = "<script> alert('Login ou senha invalidos!!!!'); </script>";               
                 Response.Write(msg);
+ 
 
             }
         }
