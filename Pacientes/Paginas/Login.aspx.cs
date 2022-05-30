@@ -36,7 +36,7 @@ namespace Pacientes.Paginas
                 {
                     Session["ID"] = u.ID;
                     Session["nome"] = u.nome;
-                    Session["email"] = cpf;
+                    Session["cpf"] = cpf;
                     Response.Redirect("~/Paginas/Pacientes.aspx");
 
                 }

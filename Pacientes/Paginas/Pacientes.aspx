@@ -46,7 +46,7 @@
                     <asp:BoundField HeaderText="CPF" DataField="cpf" />
                    
                     <asp:CommandField ControlStyle-CssClass="btn btn-primary" HeaderText="Ação1" ShowSelectButton="True" SelectText="Editar" />
-                    <asp:CommandField ControlStyle-CssClass="btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
+                    <asp:CommandField ControlStyle-CssClass="btn btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
                 </Columns>
         
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -110,7 +110,9 @@
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao1" ControlToValidate="txtRua"></asp:RegularExpressionValidator>
                                 </td>
                                 <td><label>Numero</label></td>
-                                <td><asp:TextBox  id="txtNumero" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtNumero" runat="server"> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator18" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="(^[\d]+$){1}" ValidationGroup="validacao1" ControlToValidate="txtNumero"></asp:RegularExpressionValidator>
+                                </td>
                                 
                             </tr>
                             <tr>
@@ -183,7 +185,7 @@
          </div>
     </asp:Panel>
 
-     <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="Label3" OkControlID="botaoOkModalFechar" CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+     <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="Label3"  CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style="display:none;">
          <div class="modal-content" style="background-color:green">
@@ -253,7 +255,9 @@
                                 </td>
                                 
                                 <td><label>Numero</label></td>
-                                <td><asp:TextBox  id="txtEditarNumero" runat="server" Text=""> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarNumero" runat="server" Text=""> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator17" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="(^[\d]+$){1}" ValidationGroup="validacao2" ControlToValidate="txtEditarNumero"></asp:RegularExpressionValidator>
+                                </td>
                                 
                             </tr>
                             <tr>

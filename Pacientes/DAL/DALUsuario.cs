@@ -105,5 +105,55 @@ namespace Pacientes.DAL
             return obj;
         }
 
+        public ModeloUsuario GetRegistroEmail(String cpf)
+        {
+
+
+            ModeloUsuario obj = new ModeloUsuario();
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.USUARIO where cpf =:cpf";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("cpf", cpf));
+         
+
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+
+                    registro.Read();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.cpf = Convert.ToString(registro["cpf"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.email = Convert.ToString(registro["email"]);
+                    obj.senha = Convert.ToString(registro["senha"]);
+
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+
+
+
+            return obj;
+        }
+
     }
 }

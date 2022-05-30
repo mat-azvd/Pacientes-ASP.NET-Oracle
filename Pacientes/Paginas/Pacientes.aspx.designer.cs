@@ -240,6 +240,15 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtNumero;
 
         /// <summary>
+        /// Controle RegularExpressionValidator18.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator18;
+
+        /// <summary>
         /// Controle txtCidade.
         /// </summary>
         /// <remarks>
@@ -634,6 +643,15 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEditarNumero;
+
+        /// <summary>
+        /// Controle RegularExpressionValidator17.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator17;
 
         /// <summary>
         /// Controle txtEditarCidade.

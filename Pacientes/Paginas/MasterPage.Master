@@ -23,40 +23,6 @@
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/jquery.maskedinput.min.js"></script>
     
-
-    <%-- <script src="../Scripts/jquery-3.6.0.intellisense.js"></script>
-    <script src="../Scripts/jquery-3.6.0.min.js"></script>
-    <script src="../Scripts/jquery-3.6.0.js"></script>
-    <script src="../Scripts/jquery-ui.js"></script>
-    <script src="../Scripts/jquery.maskedinput.js"></script>
-    <script src="../Scripts/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#TextCpf").mask("999.999.999-99");
-            var dialogDefine = $("#divLoginDialog").dialog({
-                
-                autoOpen: false,
-                modal: true,
-                closeOnEscape: true,
-                draggable: true,
-                resizable: true,
-                position: [550, 250],
-                title: "Login",
-                overlay: "background-color: black; opacity: 90",
-                buttons: {
-                    Cancel: function () { $(this).dialog('close'); },
-                    Ok: function () { /*Call your custom validation code;*/ }
-                }
-            }); //end dialog
-            
-            $("#hlkShowLogin").click(function () {
-                $("#divLoginDialog").dialog('open');
-                $("#divLoginDialog").parent().appendTo($("form:first"));
-                
-                return;
-            });
-        });//end Jquery
-    </script>--%>
 </head>
 <body>
     
