@@ -26,7 +26,7 @@
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>     
        
-        <asp:TextBox ID="txtPesquisa" runat="server" placeholder="Digite CPF"></asp:TextBox>
+        <asp:TextBox ID="txtPesquisa" runat="server" placeholder="Digite CPF ou Nome"></asp:TextBox>
         <asp:Button ID="btnPesquisa" runat="server" text="Pesquisar" onclick="btnPesquisar_Click" />
 
          <div id="formTabela" >
