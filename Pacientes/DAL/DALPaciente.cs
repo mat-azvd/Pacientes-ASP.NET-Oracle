@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using Pacientes.Modelo;
 using System.Data;
-using System.Data.SqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
 using System.Text.RegularExpressions;
@@ -298,6 +297,7 @@ namespace Pacientes.DAL
             OracleConnection con = new OracleConnection(connString.ToString());
             OracleCommand cmd = new OracleCommand();
 
+            
 
             //Executar um comando no banco
             try
@@ -305,20 +305,22 @@ namespace Pacientes.DAL
                 cmd.Connection = con;
                 cmd.CommandText = "UPDATE PACIENTES.PACIENTES SET nome=:nome, cpf=:cpf, sexo=:sexo, telefone=:telefone, email=:email, Data_Nascimento=:Data_Nascimento, Nome_Mae=:Nome_Mae, Estado_Civil=:Estado_Civil, Rua=:Rua, Estado=:Estado, Cidade=:Cidade, Numero=:Numero, Complemento=:Complemento where ID=:ID";
 
-                cmd.Parameters.Add("ID",objP.ID);
-                cmd.Parameters.Add("nome", objP.nome);
-                cmd.Parameters.Add("cpf", objP.cpf);
-                cmd.Parameters.Add("sexo", objP.sexo);
-                cmd.Parameters.Add("telefone", objP.telefone);
-                cmd.Parameters.Add("email", objP.email);
-                cmd.Parameters.Add("Data_Nascimento", objP.Data_Nascimento);
-                cmd.Parameters.Add("Nome_Mae", objP.Nome_Mae);
-                cmd.Parameters.Add("Estado_Civil", objP.Estado_Civil);
-                cmd.Parameters.Add("Rua", objP.Rua);
-                cmd.Parameters.Add("Estado", objP.Estado);
-                cmd.Parameters.Add("Cidade", objP.Cidade);
-                cmd.Parameters.Add("Numero", objP.Numero);
-                cmd.Parameters.Add("Complemento",objP.Complemento);
+                cmd.BindByName = true;
+
+                cmd.Parameters.Add(new OracleParameter("ID", objP.ID));
+                cmd.Parameters.Add(new OracleParameter("nome", objP.nome));
+                cmd.Parameters.Add(new OracleParameter("cpf", objP.cpf));
+                cmd.Parameters.Add(new OracleParameter("sexo", objP.sexo));
+                cmd.Parameters.Add(new OracleParameter("telefone", objP.telefone));
+                cmd.Parameters.Add(new OracleParameter("email", objP.email));
+                cmd.Parameters.Add(new OracleParameter("Data_Nascimento", objP.Data_Nascimento));
+                cmd.Parameters.Add(new OracleParameter("Nome_Mae", objP.Nome_Mae));
+                cmd.Parameters.Add(new OracleParameter("Estado_Civil", objP.Estado_Civil));
+                cmd.Parameters.Add(new OracleParameter("Rua", objP.Rua));
+                cmd.Parameters.Add(new OracleParameter("Estado", objP.Estado));
+                cmd.Parameters.Add(new OracleParameter("Cidade", objP.Cidade));
+                cmd.Parameters.Add(new OracleParameter("Numero", objP.Numero));
+                cmd.Parameters.Add(new OracleParameter("Complemento",objP.Complemento));
 
 
                 con.Open();

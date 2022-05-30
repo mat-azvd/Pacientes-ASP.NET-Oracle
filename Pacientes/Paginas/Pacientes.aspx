@@ -218,7 +218,7 @@
          <asp:Panel ID="PanelEditarPaciente" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
                 <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">Editar Paciente</h4>
                     </div>
                     <div class="modal-body">
                         <table>

@@ -376,8 +376,8 @@ namespace Pacientes.DAL
                 cmd.Connection = con;
                 cmd.CommandText = "UPDATE PACIENTES.PACIENTES_ALERGIAS set ID_ALERGIA=:ID_ALERGIA where ID_PACIENTE=:ID_PACIENTE";
 
-                cmd.Parameters.Add("ID_ALERGIA", objAP.ID_ALERGIA);
-                cmd.Parameters.Add("ID_PACIENTE", objAP.ID_PACIENTE);
+                cmd.Parameters.Add(new OracleParameter("ID_ALERGIA", objAP.ID_ALERGIA));
+                cmd.Parameters.Add(new OracleParameter("ID_PACIENTE", objAP.ID_PACIENTE));
 
 
                 con.Open();
