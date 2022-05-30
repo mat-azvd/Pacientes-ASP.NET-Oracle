@@ -62,7 +62,7 @@ namespace Pacientes.Paginas
 
         protected void modalTesteABrir(object sender, EventArgs e)
         {
-            ModalPopupExtender1.Show();
+            
         }
 
     }

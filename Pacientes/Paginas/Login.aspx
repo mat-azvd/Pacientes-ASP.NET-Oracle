@@ -9,6 +9,9 @@
     
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/jquery.maskedinput.min.js"></script>
+     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.min.js"></script>    
+    <link href="../CSS/Styles.css" rel="stylesheet" />
     <script type="text/javascript">
          jQuery(function ($) {
              $("#TextCpf").mask("999.999.999-99");
@@ -20,26 +23,36 @@
 </head>
 <body>
      
-    <form id="form1" runat="server">
-        <asp:ScriptManager runat="server"></asp:ScriptManager> 
-        <div id="DIV_PRINCIPAl">
-        <asp:Panel runat="server" ID="Panel_Principal">          
-                <asp:label runat="server">Faça seu Login </asp:label>
-                <asp:TextBox runat="server" ID="TextCpf"  placeholder="CPF" ></asp:TextBox>
-                <asp:TextBox runat="server" ID="TextSenha"  placeholder="Senha"></asp:TextBox>
-                <asp:Button runat="server" ID="btEntrar" CssClass="botaoStyle" Text="Entrar" OnClick="btEntrar_Click" />
-             <asp:Button ID="Button3" class="btn btn-primary" OnClick="modalTesteABrir" runat="server" text="TESTE"/>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
-             </asp:Panel>
-            </div>
-        
-        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="teste" TargetControlID="Label1" CancelControlID="btnTeste" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-    <asp:Panel id="teste" runat="server">
-        <asp:Label runat="server" Text="TESTEEEE"></asp:Label>
-         <asp:TextBox runat="server" ID="TextBox1" class="data" placeholder="cadat" ></asp:TextBox>
-        <asp:Button ID="btnTeste" runat="server"/>
-    </asp:Panel>
-       
+    <form id="form1" runat="server">         
+        <div id="formLogin">
+        <asp:Panel runat="server" ID="Panel_Principal" HorizontalAlign="Center"> 
+            <table class="table">
+                <tr><td>
+                    <asp:label runat="server" CssClass="LabelTitulo">Faça seu Login </asp:label>
+                    </td>
+                </tr>           
+                <tr>
+               <td>                
+                <asp:TextBox runat="server" ID="TextCpf" CssClass="TextBoxLogin" placeholder="CPF" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldLoginValidator" runat="server" ErrorMessage="*" ControlToValidate="TextCpf" ForeColor="Red" ValidationGroup="validacao6"></asp:RequiredFieldValidator>
+                </td>
+                </tr>
+                <tr>
+                 <td> 
+                <asp:TextBox runat="server" ID="TextSenha" CssClass="TextBoxLogin"  placeholder="Senha" TextMode="Password" ></asp:TextBox>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="TextSenha" ForeColor="Red" ValidationGroup="validacao6"></asp:RequiredFieldValidator>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <asp:Button runat="server" ID="btEntrar" Class="btn" Text="Continuar" OnClick="btEntrar_Click" ValidationGroup="validacao6" />                            
+                </td>
+                </tr>
+           
+                </table>
+          </asp:Panel>
+            </div>        
+             
     </form>
 </body>
 </html>
