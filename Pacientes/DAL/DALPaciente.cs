@@ -6,6 +6,8 @@ using Pacientes.Modelo;
 using System.Data;
 using System.Data.SqlClient;
 using Oracle.ManagedDataAccess.Client;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Pacientes.DAL
 {
@@ -20,6 +22,30 @@ namespace Pacientes.DAL
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/MyWebSiteRoot");
             connString = rootWebConfig.ConnectionStrings.ConnectionStrings["BancoPacientesOracle"];
+
+        }
+
+        public DataTable ListarDataTable( )
+        {
+            //DataTable para criar uma tabela
+            DataTable tabela = new DataTable();
+
+            //SqlDataAdapter para executar comandos SQL passando o comando e a string de conexao
+            OracleDataAdapter da = new OracleDataAdapter("Select * from PACIENTES.PACIENTES", connString.ConnectionString);           
+
+            try
+            {
+
+                //Pegar o retorno do comando e preencher a tabela
+                da.Fill(tabela);
+                return tabela;
+            }
+
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+
 
         }
 
@@ -99,6 +125,48 @@ namespace Pacientes.DAL
 
             cmd.CommandText = "select * from PACIENTES.PACIENTES";
 
+            cmd.BindByName = true;
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                while (registro.Read())
+                {
+                    ModeloPaciente obj = new ModeloPaciente();
+                    obj.ID = Convert.ToInt32(registro["ID"]);
+                    obj.cpf = Convert.ToString(registro["cpf"]);
+                    obj.nome = Convert.ToString(registro["nome"]);
+                    obj.email = Convert.ToString(registro["email"]);
+
+                    ListaPacientes.Add(obj);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+
+            return ListaPacientes;
+        }
+
+        public List<ModeloPaciente> ListarPesquisa(String pesquisa)
+        {
+            List<ModeloPaciente> ListaPacientes = new List<ModeloPaciente>();
+
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "select * from PACIENTES.PACIENTES where cpf=:pesquisa or nome=:pesquisa";
+
+            cmd.Parameters.Add(new OracleParameter("pesquisa", pesquisa));
+           
             cmd.BindByName = true;
 
             cmd.Connection = con;

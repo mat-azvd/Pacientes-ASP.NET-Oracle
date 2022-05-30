@@ -16,6 +16,7 @@
         jQuery(function ($) {
             $('.txtCpf').mask("999.999.999-99");
             $('.data').mask('99/99/9999');
+            $('.telefone').mask("(99)99999-9999");
         });
     </script>
 
@@ -25,6 +26,8 @@
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>     
        
+        <asp:TextBox ID="txtPesquisa" runat="server" placeholder="Digite CPF"></asp:TextBox>
+        <asp:Button ID="btnPesquisa" runat="server" text="Pesquisar" onclick="btnPesquisar_Click" />
 
          <div id="formTabela" >
             <asp:GridView ID="GridViewPacientes" HorizontalAlign="Center" 
@@ -122,7 +125,7 @@
                                 <td><label>Complemento</label></td>
                                 <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox></td>
                                 <td><label>Telefone</label></td>
-                                <td><asp:TextBox  id="txtTelefone" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtTelefone" class="telefone" runat="server"> </asp:TextBox></td>
                                 
                             </tr>
 
@@ -208,14 +211,14 @@
                                 <td><label>Nome</label></td>
                                 <td><asp:TextBox  id="txtEditarNome" runat="server" Text=""> </asp:TextBox></td>                                    
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox  ID="txtEditarCpf" runat="server"  Text=""> </asp:TextBox>
+                                <td><asp:TextBox  ID="txtEditarCpf" class="txtCpf" runat="server"  Text=""> </asp:TextBox>
                                 </td>                               
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
                                 <td><asp:TextBox id="txtEditarSexo" runat="server" Text=""> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox  id="txtEditarNasci" runat="server" Text=""> </asp:TextBox></td>                                                                  
+                                <td><asp:TextBox  id="txtEditarNasci" runat="server" class="data" Text=""> </asp:TextBox></td>                                                                  
                             </tr>
 
                             <tr>                  
@@ -244,7 +247,7 @@
                                 <td><label>Complemento</label></td>
                                 <td><asp:TextBox  id="txtEditarComplemento" runat="server" Text=""> </asp:TextBox></td>
                                 <td><label>Telefone</label></td>
-                                <td><asp:TextBox  id="txtEditarTelefone" runat="server" Text=""> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarTelefone" class="telefone" runat="server" Text=""> </asp:TextBox></td>
                                 
                             </tr>
 

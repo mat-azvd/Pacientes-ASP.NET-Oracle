@@ -39,6 +39,25 @@ namespace Pacientes.Paginas
         }
         */
 
+        protected void btnPesquisar()
+        {
+
+        }
+
+        protected void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string pesquisa = Convert.ToString(txtPesquisa.Text.Trim());
+            DALPaciente dal = new DALPaciente();
+            ModeloPaciente obj = new ModeloPaciente();
+            if (pesquisa != null)
+            {
+                GridViewPacientes.DataSource = dal.ListarPesquisa(pesquisa);
+                GridViewPacientes.DataBind();
+            }
+            
+
+        }
+
 
         protected void botaoInserir_Click1(object sender, EventArgs e)
         {
@@ -314,6 +333,7 @@ namespace Pacientes.Paginas
         }
 
         
+        
 
 
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
@@ -355,5 +375,9 @@ namespace Pacientes.Paginas
             */
         }
 
+        
+       
+
+        
     }
 }

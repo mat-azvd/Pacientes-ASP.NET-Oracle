@@ -15,6 +15,24 @@ namespace Pacientes.Paginas
     {
 
         /// <summary>
+        /// Controle txtPesquisa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesquisa;
+
+        /// <summary>
+        /// Controle btnPesquisa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPesquisa;
+
+        /// <summary>
         /// Controle GridViewPacientes.
         /// </summary>
         /// <remarks>
