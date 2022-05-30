@@ -384,9 +384,7 @@ namespace Pacientes.Paginas
             DALPaciente dal = new DALPaciente();
             GridViewPacientes.AllowPaging = false;           
             GridViewPacientes.DataSource = dal.Listar();
-            GridViewPacientes.DataBind();
-
-            //for(int i = 2; GridViewPacientes.HeaderRow.Cells.Count ) { }
+            GridViewPacientes.DataBind();         
 
             int numColunas = GridViewPacientes.HeaderRow.Cells.Count-2;
 
@@ -432,17 +430,18 @@ namespace Pacientes.Paginas
                 }
             }
 
-            Document pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+            Document pdfDocumento = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
 
-            PdfWriter.GetInstance(pdfDocument, Response.OutputStream);
+            PdfWriter.GetInstance(pdfDocumento, Response.OutputStream);                      
 
-            pdfDocument.Open();
-            pdfDocument.Add(pdfTable);
-            pdfDocument.Close();
+            pdfDocumento.Open();
+            pdfDocumento.AddTitle("Nome");
+            pdfDocumento.Add(pdfTable);
+            pdfDocumento.Close();
 
             Response.ContentType = "application/pdf";
-            Response.AppendHeader("content-disposition", "attachment;filename=Estoque.pdf");
-            Response.Write(pdfDocument);
+            Response.AppendHeader("content-disposition", "attachment;filename=Lista_de_Pacientes.pdf");
+            Response.Write(pdfDocumento);
             Response.Flush();
             Response.End();
         }
