@@ -84,7 +84,7 @@
                                 <td><label>Nome</label></td>
                                 <td><asp:TextBox  id="txtNome" type="text" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtNome" ForeColor="Red" ValidationGroup="validacao1"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="validacao2" ControlToValidate="txtNome"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtNome"></asp:RegularExpressionValidator>
                                 </td>
                                 <td><label>CPF</label></td>
                                 <td><asp:TextBox ID="txtCpf" class="txtCpf" runat="server" Width="188px" ></asp:TextBox>
@@ -96,7 +96,7 @@
                                 <td><label>Sexo</label></td>
                                 <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red"  ControlToValidate="txtSexo"></asp:RequiredFieldValidator>
-                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="validacao2" ControlToValidate="txtSexo"></asp:RegularExpressionValidator>
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtSexo"></asp:RegularExpressionValidator>
                                 </td>
                                 <td><label>Data de Nascimento</label></td>
                                 <td><asp:TextBox class="data" id="txtData_nascimento" runat="server"> </asp:TextBox>
@@ -106,14 +106,18 @@
                             <tr>                  
                                 <td><label>Rua</label></td>
                                 <td><asp:TextBox  id="txtRua" runat="server"> </asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red" ControlToValidate="txtRua"></asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red" ControlToValidate="txtRua"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtRua"></asp:RegularExpressionValidator>
+                                </td>
                                 <td><label>Numero</label></td>
                                 <td><asp:TextBox  id="txtNumero" runat="server"> </asp:TextBox></td>
                                 
                             </tr>
                             <tr>
                                 <td><label>Cidade</label></td>
-                                <td><asp:TextBox  id="txtCidade" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtCidade" runat="server"> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtCidade"></asp:RegularExpressionValidator>
+                                </td>
                                 
                                 <td><label>Estado</label></td>
                                 <td><asp:DropDownList ID="txtEstado" runat="server" DataTextField="descricao" DataValueField="descricao" OnSelectedIndexChanged="txtEstado_SelectedIndexChanged1" Width="150px" >
@@ -127,23 +131,29 @@
 
                             <tr>
                                 <td><label>Complemento</label></td>
-                                <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtComplemento"></asp:RegularExpressionValidator>
+                                </td>
                                 <td><label>Telefone</label></td>
                                 <td><asp:TextBox  id="txtTelefone" class="telefone" runat="server"> </asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ControlToValidate="txtTelefone"></asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="validacao1" ControlToValidate="txtTelefone"></asp:RequiredFieldValidator></td>
                             </tr>
 
                             <tr>
                                 <td><label>Email</label></td>
                                 <td><asp:TextBox  id="txtEmail" runat="server"> </asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ControlToValidate="txtEmail"></asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="validacao1" ControlToValidate="txtEmail"></asp:RequiredFieldValidator></td>
                                 <td><label>Estado Civil</label></td>
-                                <td><asp:TextBox  id="txtEstado_civil" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEstado_civil" runat="server"> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtEstado_civil"></asp:RegularExpressionValidator>
+                                </td>
                                 
                             </tr>
                             <tr>
                                 <td><label>Nome da Mãe</label></td>
-                                <td><asp:TextBox  id="txtNome_mae" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtNome_mae" runat="server"> </asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtNome_mae"></asp:RegularExpressionValidator>
+                                </td>
                                 
                                 <td><label>Alergias</label></td>
                                 <td><asp:DropDownList ID="txtAlergia" runat="server" DataTextField="nome_alergia" DataValueField="nome_alergia" OnSelectedIndexChanged="txtAlergia_SelectedIndexChanged1" Width="150px">
