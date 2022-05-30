@@ -33,13 +33,31 @@
                 </tr>           
                 <tr>
                <td style="border:none">                
-                <asp:TextBox runat="server" ID="TextCpf" CssClass="TextBoxLogin" placeholder="CPF" ></asp:TextBox>
+                <asp:TextBox runat="server" ID="TextCpf" placeholder="CPF" 
+                    style="background-color: transparent;
+                    color: #000000;
+                    outline: none;
+                    outline-style: none;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: solid #000000 1px;
+                    padding: 3px 10px;" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldLoginValidator" runat="server" ErrorMessage="Digite CPF" ControlToValidate="TextCpf" ForeColor="Red" ValidationGroup="validacao6" Text="*"></asp:RequiredFieldValidator>
                 </td>
                 </tr>
                 <tr>
                  <td style="border:none"> 
-                <asp:TextBox runat="server" ID="TextSenha" CssClass="TextBoxLogin"  placeholder="Senha" TextMode="Password" ></asp:TextBox>
+                <asp:TextBox runat="server" ID="TextSenha" placeholder="Senha" TextMode="Password" 
+                    style="background-color: transparent;
+                    color: #000000;
+                    outline: none;
+                    outline-style: none;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: solid #000000 1px;
+                    padding: 3px 10px;"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Digite Senha" ControlToValidate="TextSenha" ForeColor="Red" ValidationGroup="validacao6">*</asp:RequiredFieldValidator>
                 </td>
                 </tr>
