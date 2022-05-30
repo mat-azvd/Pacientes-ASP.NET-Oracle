@@ -260,6 +260,45 @@ namespace Pacientes.DAL
             return obj;
         }
 
+        public ModeloPacienteXAlergia GetPacienteIDXAlergia(int ID)
+        {
+            OracleConnection con = new OracleConnection(connString.ToString());
+
+            OracleCommand cmd = new OracleCommand();
+
+            ModeloPacienteXAlergia obj = new ModeloPacienteXAlergia();
+
+            cmd.CommandText = "select * from PACIENTES.PACIENTES_ALERGIAS WHERE ID_ALERGIA =:ID";
+
+            cmd.BindByName = true;
+
+            cmd.Parameters.Add(new OracleParameter("ID", ID));
+
+            cmd.Connection = con;
+            con.Open();
+
+            OracleDataReader registro = cmd.ExecuteReader();
+
+            try
+            {
+
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    obj.ID_PACIENTE = Convert.ToInt32(registro["ID_PACIENTE"]);
+                    obj.ID_ALERGIA = Convert.ToInt32(registro["ID_ALERGIA"]);
+
+                }
+
+            }
+            catch (Exception erro)
+            {
+                new Exception(erro.Message);
+            }
+
+            return obj;
+        }
+
         public void inserirPacienteXAlergia(ModeloPacienteXAlergia obj)
         {
 
@@ -292,7 +331,7 @@ namespace Pacientes.DAL
 
         }
 
-        public void Delete(int ID)
+        public void DeleteAlergia(int ID)
         {
 
             //Criar um objeto de conexão
@@ -307,6 +346,7 @@ namespace Pacientes.DAL
                 cmd.Connection = con;
                 cmd.CommandText = "Delete from PACIENTES.ALERGIAS where ID=:" + ID.ToString();
 
+                cmd.Parameters.Add(new OracleParameter("ID", ID));
                 con.Open();
                 cmd.ExecuteNonQuery();
 
