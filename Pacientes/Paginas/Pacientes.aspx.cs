@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Pacientes.DAL;
 using Pacientes.Modelo;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
 
 namespace Pacientes.Paginas
 {
@@ -375,9 +378,75 @@ namespace Pacientes.Paginas
             */
         }
 
-        
-       
 
-        
+        protected void ButtonDownloadPDF_Click(object sender, EventArgs e)
+        {
+            DALPaciente dal = new DALPaciente();
+            GridViewPacientes.AllowPaging = false;           
+            GridViewPacientes.DataSource = dal.Listar();
+            GridViewPacientes.DataBind();
+
+            //for(int i = 2; GridViewPacientes.HeaderRow.Cells.Count ) { }
+
+            int numColunas = GridViewPacientes.HeaderRow.Cells.Count-2;
+
+            PdfPTable pdfTable = new PdfPTable(numColunas);          
+
+            foreach (TableCell gridViewHeaderCell in GridViewPacientes.HeaderRow.Cells)
+            {
+                if (gridViewHeaderCell.Text == "Nome" || gridViewHeaderCell.Text == "CPF")
+                { 
+
+                // Criar objeto fonte para o PDF
+                Font font = new Font();
+
+                // Mudar a cor do header da Grindview
+                font.Color = new BaseColor(GridViewPacientes.HeaderStyle.ForeColor);
+
+                // Criar cada celula do pdf passando o texto e a fonte
+                PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewHeaderCell.Text, font));
+
+                // Cor do background da grindview
+                pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.HeaderStyle.BackColor);
+
+                // Adicionar as celulas na tabela de PDF
+                pdfTable.AddCell(pdfCell);
+                }  
+            }
+
+            foreach (GridViewRow gridViewRow in GridViewPacientes.Rows)
+            {
+                if (gridViewRow.RowType == DataControlRowType.DataRow)
+                {
+                    // Loop por cada celula das linhas da Grindview
+                    foreach (TableCell gridViewCell in gridViewRow.Cells)
+                    {
+                        Font font = new Font();
+
+                        PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewCell.Text, font));
+
+                        pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.RowStyle.BackColor);
+
+                        pdfTable.AddCell(pdfCell);
+                    }
+                }
+            }
+
+            Document pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+
+            PdfWriter.GetInstance(pdfDocument, Response.OutputStream);
+
+            pdfDocument.Open();
+            pdfDocument.Add(pdfTable);
+            pdfDocument.Close();
+
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("content-disposition", "attachment;filename=Estoque.pdf");
+            Response.Write(pdfDocument);
+            Response.Flush();
+            Response.End();
+        }
+
+
     }
 }

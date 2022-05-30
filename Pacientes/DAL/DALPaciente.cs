@@ -8,6 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
 using System.Text.RegularExpressions;
 
+
 namespace Pacientes.DAL
 {
     public class DALPaciente
@@ -343,7 +344,12 @@ namespace Pacientes.DAL
         }
 
 
+       
+
+
     }
+
+
     /*
      * cmd.Parameters.Add("ID",Convert.ToInt32(objP.ID));
                 cmd.Parameters.Add("nome", Convert.ToString(objP.nome));

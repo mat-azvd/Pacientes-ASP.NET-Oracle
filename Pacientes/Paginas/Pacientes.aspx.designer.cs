@@ -51,6 +51,15 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.Button botaoModalInserir;
 
         /// <summary>
+        /// Controle ButtonDownloadPDF.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDownloadPDF;
+
+        /// <summary>
         /// Controle lblabel.
         /// </summary>
         /// <remarks>

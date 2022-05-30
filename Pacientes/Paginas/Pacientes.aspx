@@ -59,6 +59,7 @@
            
               <div>                
             <asp:Button ID="botaoModalInserir" class="btn btn-primary" OnClick="botaoModalInserir_Abrir" runat="server" text="Novo Paciente"/>
+            <asp:Button ID="ButtonDownloadPDF" class="btn btn-outline-danger" runat="server" Text="Download PFD" OnClick="ButtonDownloadPDF_Click" />
             <asp:Label ID="lblabel"  runat="server" Text=""></asp:Label>
             <asp:Label ID="Label2"  runat="server" Text=""></asp:Label>
             <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
