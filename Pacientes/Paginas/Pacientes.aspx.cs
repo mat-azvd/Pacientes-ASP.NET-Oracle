@@ -133,9 +133,10 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             DALalergia dal2 = new DALalergia();
-            ModeloAlergia obj2 = new ModeloAlergia();
+            /*ModeloAlergia obj2 = new ModeloAlergia();
             ModeloPaciente obj = new ModeloPaciente();
             ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+            */
 
             ModeloPaciente objP = dal.GetRegistro(cod);
 
@@ -153,6 +154,7 @@ namespace Pacientes.Paginas
             txtEditarEstado.DataBind();
 
 
+
             txtEditarNome.Text = Convert.ToString(objP.nome);
             txtEditarCpf.Text = Convert.ToString(objP.cpf);
             txtEditarSexo.Text = Convert.ToString(objP.sexo);
@@ -168,6 +170,24 @@ namespace Pacientes.Paginas
             txtEditarMae.Text = Convert.ToString(objP.Nome_Mae);
             txtEditarAlergia.Text = Convert.ToString(objA.nome_alergia);
 
+            /*
+            
+            txtEditarNome.Text = objP.nome;
+            txtEditarCpf.Text = objP.cpf;
+            txtEditarSexo.Text = objP.sexo;
+            txtEditarNasci.Text = objP.Data_Nascimento;
+            txtEditarRua.Text = objP.Rua;
+            txtEditarNumero.Text = objP.Numero;
+            txtEditarCidade.Text = objP.Cidade;
+            txtEditarEstado.Text = objP.Estado;
+            txtEditarComplemento.Text = objP.Complemento;
+            txtEditarTelefone.Text = objP.telefone;
+            txtEditarEmail.Text = objP.email;
+            txtEditarEstadoCivil.Text = objP.Estado_Civil;
+            txtEditarMae.Text = objP.Nome_Mae;
+            txtEditarAlergia.Text = objA.nome_alergia;
+             */
+
             ModalEditarPaciente.Show();
 
         }
@@ -179,30 +199,34 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             DALalergia dal2 = new DALalergia();
-            ModeloAlergia obj2 = new ModeloAlergia();
-            ModeloPaciente obj = new ModeloPaciente();
-            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+            //ModeloAlergia obj2 = new ModeloAlergia();
+            //ModeloPaciente obj = new ModeloPaciente();
+            //ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
 
-            ModeloPaciente objP = dal.GetRegistro(cod);
+            ModeloPaciente objP2 = dal.GetRegistro(cod);
 
-            int codAP = objP.ID;
+            int codAP = objP2.ID;
 
             ModeloPacienteXAlergia objAP = dal2.GetAlergiaXPacienteID(codAP);
 
-            int codA = objAP.ID_ALERGIA;
+            //int codA = objAP.ID_ALERGIA;
 
-            ModeloAlergia objA = dal2.GetAlergiaID(codA);
+            //ModeloAlergia objA = dal2.GetAlergiaID(codA);
 
-            string nome_alergia = txtEditarAlergia.Text.Trim();
+            string nome_alergia = txtEditarAlergia.Text;
 
             ModeloAlergia novaID_Alergia = dal2.GetNovaAlergia(nome_alergia);
-            
-            string nome = txtEditarNome.Text.Trim();
-            string cpf = txtEditarCpf.Text.Trim();
+
+            //string nome = txtEditarNome.Text.Trim();
+            //string cpf = txtEditarCpf.Text.Trim();
 
             objAP.ID_ALERGIA = Convert.ToInt32(novaID_Alergia.ID);
-            objP.nome = Convert.ToString(nome);
-            objP.cpf = Convert.ToString(cpf);
+            dal2.AlterarAlergiaXPaciente(objAP);
+
+            ModeloPaciente objP = dal.GetRegistro(cod);
+
+            objP.nome = Convert.ToString(txtEditarNome.Text);
+            objP.cpf = Convert.ToString(txtEditarCpf.Text);
             objP.sexo = Convert.ToString(txtEditarSexo.Text);
             objP.telefone = Convert.ToString(txtEditarTelefone.Text);
             objP.email = Convert.ToString(txtEditarEmail.Text);
@@ -215,8 +239,24 @@ namespace Pacientes.Paginas
             objP.Numero = Convert.ToString(txtEditarNumero.Text);
             objP.Complemento = Convert.ToString(txtEditarComplemento.Text);
 
-            dal.AlterarPaciente(obj);
-            dal2.AlterarAlergiaXPaciente(objAP);
+            /* objAP.ID_ALERGIA = Convert.ToInt32(novaID_Alergia.ID);
+            objP.ID = objP.ID;
+            objP.nome = txtEditarNome.Text;
+            objP.cpf = txtEditarCpf.Text;
+            objP.sexo = txtEditarSexo.Text;
+            objP.telefone = txtEditarTelefone.Text;
+            objP.email = txtEditarEmail.Text;
+            objP.Data_Nascimento = txtEditarNasci.Text;
+            objP.Nome_Mae = txtEditarMae.Text;
+            objP.Estado_Civil = txtEditarEstadoCivil.Text;
+            objP.Rua = txtEditarRua.Text;
+            objP.Estado = txtEditarEstado.Text;
+            objP.Cidade = txtEditarCidade.Text;
+            objP.Numero = txtEditarNumero.Text;
+            objP.Complemento = txtEditarComplemento.Text;
+            */
+            dal.AlterarPaciente(objP);
+            
             AtualizaLista();
             Response.Redirect("~/Paginas/Pacientes.aspx");
         }

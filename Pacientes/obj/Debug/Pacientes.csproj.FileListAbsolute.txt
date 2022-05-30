@@ -82,3 +82,4 @@ D:\Program Files\Desenvolvimento-APS.NET\Pacientes\Pacientes\bin\System.Text.Enc
 D:\Program Files\Desenvolvimento-APS.NET\Pacientes\Pacientes\bin\System.Text.Json.xml
 D:\Program Files\Desenvolvimento-APS.NET\Pacientes\Pacientes\bin\System.Threading.Tasks.Extensions.xml
 D:\Program Files\Desenvolvimento-APS.NET\Pacientes\Pacientes\bin\System.ValueTuple.xml
+D:\Program Files\Desenvolvimento-APS.NET\Pacientes\Pacientes\bin\MaskedTextBox.dll

@@ -223,7 +223,7 @@ namespace Pacientes.DAL
 
         }
 
-        public void AlterarPaciente(ModeloPaciente obj)
+        public void AlterarPaciente(ModeloPaciente objP)
         {
 
 
@@ -235,24 +235,26 @@ namespace Pacientes.DAL
             try
             {
                 cmd.Connection = con;
-                cmd.CommandText = "update Pacientes.Pacientes set nome=:nome, cpf=:cpf, sexo=:sexo, telefone=:telefone, email=:email, Data_Nascimento=:Data_Nascimento, Nome_Mae=:Nome_Mae, Estado_Civil=:Estado_Civil, Rua=:Rua, Estado=:Estado, Cidade=:Cidade, Numero=:Numero, Complemento=:Complemento where ID=:ID";
+                cmd.CommandText = "UPDATE PACIENTES.PACIENTES SET nome=:nome, cpf=:cpf, sexo=:sexo, telefone=:telefone, email=:email, Data_Nascimento=:Data_Nascimento, Nome_Mae=:Nome_Mae, Estado_Civil=:Estado_Civil, Rua=:Rua, Estado=:Estado, Cidade=:Cidade, Numero=:Numero, Complemento=:Complemento where ID=:ID";
 
-                cmd.Parameters.Add("ID", obj.ID);
-                cmd.Parameters.Add("nome", obj.nome);
-                cmd.Parameters.Add("cpf", obj.cpf);
-                cmd.Parameters.Add("sexo", obj.sexo);
-                cmd.Parameters.Add("telefone", obj.telefone);
-                cmd.Parameters.Add("email", obj.email);
-                cmd.Parameters.Add("Data_Nascimento", obj.Data_Nascimento);
-                cmd.Parameters.Add("Nome_Mae", obj.Nome_Mae);
-                cmd.Parameters.Add("Estado_Civil", obj.Estado_Civil);
-                cmd.Parameters.Add("Rua", obj.Rua);
-                cmd.Parameters.Add("Estado", obj.Estado);
-                cmd.Parameters.Add("Cidade", obj.Cidade);
-                cmd.Parameters.Add("Numero", obj.Numero);
-                cmd.Parameters.Add("Complemento", obj.Complemento);
+                cmd.Parameters.Add("ID",objP.ID);
+                cmd.Parameters.Add("nome", objP.nome);
+                cmd.Parameters.Add("cpf", objP.cpf);
+                cmd.Parameters.Add("sexo", objP.sexo);
+                cmd.Parameters.Add("telefone", objP.telefone);
+                cmd.Parameters.Add("email", objP.email);
+                cmd.Parameters.Add("Data_Nascimento", objP.Data_Nascimento);
+                cmd.Parameters.Add("Nome_Mae", objP.Nome_Mae);
+                cmd.Parameters.Add("Estado_Civil", objP.Estado_Civil);
+                cmd.Parameters.Add("Rua", objP.Rua);
+                cmd.Parameters.Add("Estado", objP.Estado);
+                cmd.Parameters.Add("Cidade", objP.Cidade);
+                cmd.Parameters.Add("Numero", objP.Numero);
+                cmd.Parameters.Add("Complemento",objP.Complemento);
+
 
                 con.Open();
+                
                 cmd.ExecuteNonQuery();
 
 
@@ -272,4 +274,23 @@ namespace Pacientes.DAL
 
 
     }
+    /*
+     * cmd.Parameters.Add("ID",Convert.ToInt32(objP.ID));
+                cmd.Parameters.Add("nome", Convert.ToString(objP.nome));
+                cmd.Parameters.Add("cpf", Convert.ToString(objP.cpf));
+                cmd.Parameters.Add("sexo", Convert.ToString(objP.sexo));
+                cmd.Parameters.Add("telefone", Convert.ToString(objP.telefone));
+                cmd.Parameters.Add("email", Convert.ToString(objP.email));
+                cmd.Parameters.Add("Data_Nascimento", Convert.ToString(objP.Data_Nascimento));
+                cmd.Parameters.Add("Nome_Mae", Convert.ToString(objP.Nome_Mae));
+                cmd.Parameters.Add("Estado_Civil", Convert.ToString(objP.Estado_Civil));
+                cmd.Parameters.Add("Rua", Convert.ToString(objP.Rua));
+                cmd.Parameters.Add("Estado", Convert.ToString(objP.Estado));
+                cmd.Parameters.Add("Cidade", Convert.ToString(objP.Cidade));
+                cmd.Parameters.Add("Numero", Convert.ToString(objP.Numero));
+                cmd.Parameters.Add("Complemento", Convert.ToString(objP.Complemento));
+
+      
+    */
+    //
 }

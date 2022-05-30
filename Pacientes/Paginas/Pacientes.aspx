@@ -9,7 +9,10 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
-
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.data').mask('00/00/0000');
+    </script>
 
     <asp:Panel HorizontalAlign="center" runat="server">
 
@@ -75,10 +78,13 @@
                             <tr>
                                 
                                 <td><label>Nome</label></td>
-                                <td><asp:TextBox  id="txtNome" type="text" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtNome" type="text" runat="server"></asp:TextBox></td>
                                     
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox  ID="txtCpf" runat="server" > </asp:TextBox>
+                                <td><asp:TextBox ID="txtCpf" runat="server" > </asp:TextBox>
+                                
+                                    
+                                
                                 </td> 
                               
                             </tr>
@@ -86,7 +92,7 @@
                                 <td><label>Sexo</label></td>
                                 <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox  id="txtData_nascimento" runat="server"> </asp:TextBox></td>                                                                  
+                                <td><asp:TextBox class="data" id="txtData_nascimento" runat="server"> </asp:TextBox></td>                                                                  
                             </tr>
 
                             <tr>                  
@@ -199,29 +205,29 @@
                         <table>
                             <tr>                                
                                 <td><label>Nome</label></td>
-                                <td><asp:TextBox  id="txtEditarNome" type="text" runat="server"> </asp:TextBox></td>                                    
+                                <td><asp:TextBox  id="txtEditarNome" runat="server" Text=""> </asp:TextBox></td>                                    
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox  ID="txtEditarCpf" runat="server" > </asp:TextBox>
+                                <td><asp:TextBox  ID="txtEditarCpf" runat="server"  Text=""> </asp:TextBox>
                                 </td>                               
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
-                                <td><asp:TextBox id="txtEditarSexo" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox id="txtEditarSexo" runat="server" Text=""> </asp:TextBox></td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox  id="txtEditarNasci" runat="server"> </asp:TextBox></td>                                                                  
+                                <td><asp:TextBox  id="txtEditarNasci" runat="server" Text=""> </asp:TextBox></td>                                                                  
                             </tr>
 
                             <tr>                  
                                 <td><label>Rua</label></td>
-                                <td><asp:TextBox  id="txtEditarRua" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarRua" runat="server" Text=""> </asp:TextBox></td>
                                 
                                 <td><label>Numero</label></td>
-                                <td><asp:TextBox  id="txtEditarNumero" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarNumero" runat="server" Text=""> </asp:TextBox></td>
                                 
                             </tr>
                             <tr>
                                 <td><label>Cidade</label></td>
-                                <td><asp:TextBox  id="txtEditarCidade" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarCidade" runat="server" Text=""> </asp:TextBox></td>
                                 
                                 <td><label>Estado</label></td>
                                 <td><asp:DropDownList ID="txtEditarEstado" runat="server" DataTextField="descricao" DataValueField="descricao" OnSelectedIndexChanged="txtEditarEstado_SelectedIndexChanged1" Width="150px" >
@@ -235,26 +241,26 @@
 
                             <tr>
                                 <td><label>Complemento</label></td>
-                                <td><asp:TextBox  id="txtEditarComplemento" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarComplemento" runat="server" Text=""> </asp:TextBox></td>
                                 <td><label>Telefone</label></td>
-                                <td><asp:TextBox  id="txtEditarTelefone" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarTelefone" runat="server" Text=""> </asp:TextBox></td>
                                 
                             </tr>
 
                             <tr>
                                 <td><label>Email</label></td>
-                                <td><asp:TextBox  id="txtEditarEmail" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarEmail" runat="server" Text=""> </asp:TextBox></td>
                                 
                                 <td><label>Estado Civil</label></td>
-                                <td><asp:TextBox  id="txtEditarEstadoCivil" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarEstadoCivil" runat="server" Text=""> </asp:TextBox></td>
                                 
                             </tr>
                             <tr>
                                 <td><label>Nome da Mãe</label></td>
-                                <td><asp:TextBox  id="txtEditarMae" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox  id="txtEditarMae" runat="server" Text=""> </asp:TextBox></td>
                                 
                                 <td><label>Alergias</label></td>
-                                <td><asp:DropDownList ID="txtEditarAlergia" runat="server" DataTextField="nome_alergia" DataValueField="nome_alergia" OnSelectedIndexChanged="txtEditarAlergia_SelectedIndexChanged" Width="150px">
+                                <td><asp:DropDownList  ID="txtEditarAlergia" runat="server" DataTextField="nome_alergia" DataValueField="nome_alergia" OnSelectedIndexChanged="txtEditarAlergia_SelectedIndexChanged" Width="150px">
                                 </asp:DropDownList></td>
                                
                             </tr>                       
