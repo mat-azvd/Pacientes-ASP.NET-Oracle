@@ -42,7 +42,8 @@
                     border-left: none;
                     border-right: none;
                     border-bottom: solid #000000 1px;
-                    padding: 3px 10px;" ></asp:TextBox>
+                    padding: 3px 10px;
+                    width:50%;" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldLoginValidator" runat="server" ErrorMessage="Digite CPF" ControlToValidate="TextCpf" ForeColor="Red" ValidationGroup="validacao6" Text="*"></asp:RequiredFieldValidator>
                 </td>
                 </tr>
@@ -57,7 +58,8 @@
                     border-left: none;
                     border-right: none;
                     border-bottom: solid #000000 1px;
-                    padding: 3px 10px;"></asp:TextBox>
+                    padding: 3px 10px;
+                    width:50%;"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Digite Senha" ControlToValidate="TextSenha" ForeColor="Red" ValidationGroup="validacao6">*</asp:RequiredFieldValidator>
                 </td>
                 </tr>
@@ -67,6 +69,7 @@
                     style="border: solid;
                     border-width: 2px;
                     border-color: gray;
+                    width:50%;
                     " CssClass="btnEntar"
                     OnClick="btEntrar_Click" ValidationGroup="validacao6" />                            
                 </td>
