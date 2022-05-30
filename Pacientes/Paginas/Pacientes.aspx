@@ -2,16 +2,21 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+   
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <asp:ScriptManager runat="server"></asp:ScriptManager>   
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>    
     <link href="../CSS/Styles.css" rel="stylesheet" />
+
+     <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('.data').mask('00/00/0000');
+        jQuery(function ($) {
+            $('.txtCpf').mask("999.999.999-99");
+            $('.data').mask('99/99/9999');
+        });
     </script>
 
     <asp:Panel HorizontalAlign="center" runat="server">
@@ -56,16 +61,12 @@
             <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
             <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-             <asp:Button ID="Button3" class="btn btn-primary" OnClick="modalTesteABrir" runat="server" text="TESTE"/>
+            
         </div>
         </div>
 
     </asp:Panel>
-    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="teste" TargetControlID="Label1" CancelControlID="btnTeste" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-    <asp:Panel id="teste" runat="server">
-        <asp:Label runat="server" Text="TESTEEEE"></asp:Label>
-        <asp:Button ID="btnTeste" runat="server"/>
-    </asp:Panel>
+    
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
          <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
@@ -81,7 +82,7 @@
                                 <td><asp:TextBox  id="txtNome" type="text" runat="server"></asp:TextBox></td>
                                     
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox ID="txtCpf" runat="server" > </asp:TextBox>
+                                <td><asp:TextBox ID="txtCpf" class="txtCpf" runat="server" > </asp:TextBox>
                                 
                                     
                                 

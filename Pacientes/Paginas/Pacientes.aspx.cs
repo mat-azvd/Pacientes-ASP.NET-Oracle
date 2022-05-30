@@ -313,10 +313,7 @@ namespace Pacientes.Paginas
             GridViewPacientes.DataBind();
         }
 
-        protected void modalTesteABrir(object sender, EventArgs e)
-        {
-            ModalPopupExtender1.Show();
-        }
+        
 
 
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
