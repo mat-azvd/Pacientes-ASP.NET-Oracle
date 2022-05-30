@@ -72,7 +72,7 @@
     
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
+         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" runat="server">       <%--style="display:none;"  --%>                  
                 <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
@@ -82,27 +82,31 @@
                             <tr>
                                 
                                 <td><label>Nome</label></td>
-                                <td><asp:TextBox  id="txtNome" type="text" runat="server"></asp:TextBox></td>
-                                    
+                                <td><asp:TextBox  id="txtNome" type="text" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtNome" ForeColor="Red" ValidationGroup="validacao1"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="validacao2" ControlToValidate="txtNome"></asp:RegularExpressionValidator>
+                                </td>
                                 <td><label>CPF</label></td>
-                                <td><asp:TextBox ID="txtCpf" class="txtCpf" runat="server" > </asp:TextBox>
-                                
-                                    
-                                
-                                </td> 
+                                <td><asp:TextBox ID="txtCpf" class="txtCpf" runat="server" Width="188px" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red" ControlToValidate="txtCpf"></asp:RequiredFieldValidator></td>
+                            
                               
                             </tr>
                             <tr>
                                 <td><label>Sexo</label></td>
-                                <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox></td>
+                                <td><asp:TextBox id="txtSexo" runat="server"> </asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red"  ControlToValidate="txtSexo"></asp:RequiredFieldValidator>
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="validacao2" ControlToValidate="txtSexo"></asp:RegularExpressionValidator>
+                                </td>
                                 <td><label>Data de Nascimento</label></td>
-                                <td><asp:TextBox class="data" id="txtData_nascimento" runat="server"> </asp:TextBox></td>                                                                  
+                                <td><asp:TextBox class="data" id="txtData_nascimento" runat="server"> </asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red" ControlToValidate="txtData_nascimento"></asp:RequiredFieldValidator></td>
                             </tr>
 
                             <tr>                  
                                 <td><label>Rua</label></td>
-                                <td><asp:TextBox  id="txtRua" runat="server"> </asp:TextBox></td>
-                                
+                                <td><asp:TextBox  id="txtRua" runat="server"> </asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ForeColor="Red" ControlToValidate="txtRua"></asp:RequiredFieldValidator></td>
                                 <td><label>Numero</label></td>
                                 <td><asp:TextBox  id="txtNumero" runat="server"> </asp:TextBox></td>
                                 
@@ -125,14 +129,14 @@
                                 <td><label>Complemento</label></td>
                                 <td><asp:TextBox  id="txtComplemento" runat="server"> </asp:TextBox></td>
                                 <td><label>Telefone</label></td>
-                                <td><asp:TextBox  id="txtTelefone" class="telefone" runat="server"> </asp:TextBox></td>
-                                
+                                <td><asp:TextBox  id="txtTelefone" class="telefone" runat="server"> </asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ControlToValidate="txtTelefone"></asp:RequiredFieldValidator></td>
                             </tr>
 
                             <tr>
                                 <td><label>Email</label></td>
-                                <td><asp:TextBox  id="txtEmail" runat="server"> </asp:TextBox></td>
-                                
+                                <td><asp:TextBox  id="txtEmail" runat="server"> </asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ValidationGroup="validacao1" ControlToValidate="txtEmail"></asp:RequiredFieldValidator></td>
                                 <td><label>Estado Civil</label></td>
                                 <td><asp:TextBox  id="txtEstado_civil" runat="server"> </asp:TextBox></td>
                                 
@@ -151,7 +155,7 @@
                         </div>
                     <div class="modal-footer">
                         <asp:Button ID="botaoModalFechar1" CssClass="botaoStyle" runat="server" Text="Fechar" />
-                        <asp:Button ID="botaoInserir" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserir_Click1" />
+                        <asp:Button ID="botaoInserir" CssClass="botaoStyle" runat="server" Text="Inserir" OnClick="botaoInserir_Click1" ValidationGroup="validacao1" />
                     </div>
                 </div>                 
        </asp:Panel> 
