@@ -31,7 +31,6 @@
 
         <header id="navigation">
      
-
             <nav>
                 <asp:Label ID="labelMenu" runat="server" CssClass="botoesMenu">Lista</asp:Label>                
                 <asp:HyperLink ID="h1Pacientes" runat="server" CssClass="botoesMenu" NavigateUrl="~/Paginas/Pacientes.aspx">Pacientes</asp:HyperLink>                

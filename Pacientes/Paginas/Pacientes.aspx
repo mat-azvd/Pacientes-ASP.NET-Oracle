@@ -49,7 +49,7 @@
                     <asp:CommandField ControlStyle-CssClass="btn btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
                 </Columns>
         
-                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="lightskyblue" Font-Bold="True" ForeColor="black" />
                 <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
       
             </asp:GridView> 
