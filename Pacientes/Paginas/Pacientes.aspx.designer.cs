@@ -402,6 +402,15 @@ namespace Pacientes.Paginas
         protected global::System.Web.UI.WebControls.Button botaoInserir;
 
         /// <summary>
+        /// Controle ValidationSummary3.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary3;
+
+        /// <summary>
         /// Controle ErroModal.
         /// </summary>
         /// <remarks>
