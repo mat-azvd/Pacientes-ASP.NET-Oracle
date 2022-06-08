@@ -43,7 +43,7 @@
                     <asp:CommandField ControlStyle-CssClass="btn btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
                 </Columns>
         
-                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="cornflowerblue" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
       
             </asp:GridView>
@@ -86,7 +86,7 @@
 
     <asp:Panel runat="server" ID="PanelInserirAlergia" CssClasss="PanelModalInserir" style = "display:none">
 
-         <div class="modal-content" style="background-color:aqua">
+         <div class="modal-content" style="background-color:cornflowerblue">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
                     </div>
@@ -112,7 +112,7 @@
 
     <ajaxToolkit:ModalPopupExtender ID="ErroModalAlergia" PopupControlID="PanelErroAlergia" TargetControlID="Label2" CancelControlID="botaoModalErroFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
     <asp:Panel runat="server" ID="PanelErroAlergia" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:red">
+         <div class="modal-content" style="background-color:firebrick">
              <div id="header1" class="modal-header">
                  <h4 class="modal-title">Alergia ja cadastrada</h4>
              </div>
@@ -125,7 +125,7 @@
      <ajaxToolkit:ModalPopupExtender ID="OkModalAlergia" PopupControlID="OkPanellAlergia" TargetControlID="Label3"  CancelControlID="botaoOkModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="OkPanellAlergia" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:green">
+         <div class="modal-content" style="background-color:forestgreen">
              <div id="header2" class="modal-header">
                  <h4 class="modal-title">Cadastrada com Sucesso!</h4>
              </div>
@@ -138,7 +138,7 @@
     <ajaxToolkit:ModalPopupExtender ID="ConfirmaModalAlergia" PopupControlID="PanelConfirmaModalAlergia" TargetControlID="Label3" CancelControlID="botaoCancelar_Cancelar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelConfirmaModalAlergia" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:green">
+         <div class="modal-content" style="background-color:forestgreen">
              <div id="header3" class="modal-header">
                  <h4 class="modal-title">Deseja excluir Alergia?</h4>
                    <asp:Label id="labelAlergiaCOD" Text="" runat="server"></asp:Label>
@@ -153,7 +153,7 @@
 
     <ajaxToolkit:ModalPopupExtender ID="ModalErroDelete" PopupControlID="PanelErroDelete" TargetControlID="Label5" CancelControlID="botaoModalErroFechar3" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
     <asp:Panel runat="server" ID="PanelErroDelete" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:red">
+         <div class="modal-content" style="background-color:firebrick">
              <div id="header5" class="modal-header">
                  <h4 class="modal-title">Alergia possui pacientes cadastrados!</h4>
              </div>

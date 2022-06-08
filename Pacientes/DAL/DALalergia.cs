@@ -376,7 +376,7 @@ namespace Pacientes.DAL
             try
             {
                 cmd.Connection = con;
-                cmd.CommandText = "Delete from PACIENTES.PACIENTES_ALERGIAS where ID_PACIENTE=:" + ID.ToString();
+                cmd.CommandText = "Delete from PACIENTES.PACIENTES_ALERGIAS where ID_PACIENTE=:" + ID;
 
                 cmd.Parameters.Add(new OracleParameter("ID", ID));
 

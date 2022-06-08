@@ -21,10 +21,7 @@
     </script>
 
     <asp:Panel HorizontalAlign="center" runat="server">
-
-        <div id="titulo">
-            <asp:Label runat="server">LOGADO</asp:Label>
-        </div>     
+          
        <br/>
         <div>
         <asp:TextBox ID="txtPesquisa" runat="server" placeholder="Digite CPF ou Nome"></asp:TextBox>
@@ -51,7 +48,7 @@
                     <asp:CommandField ControlStyle-CssClass="btn btn-danger" HeaderText="Ação2" ShowDeleteButton="True" />
                 </Columns>
         
-                <HeaderStyle BackColor="lightskyblue" Font-Bold="True" ForeColor="black" />
+                <HeaderStyle BackColor="cornflowerblue" Font-Bold="True" ForeColor="black" />
                 <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
       
             </asp:GridView> 
@@ -76,7 +73,7 @@
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
          <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir"  style="display:none;" runat="server">       <%--  --%>                  
-                <div class="modal-content" style="background-color:aqua">
+                <div class="modal-content" style="background-color:cornflowerblue">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
                     </div>
@@ -182,7 +179,7 @@
     
     <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="Label2" CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
     <asp:Panel runat="server" ID="PanelErro" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:red">
+         <div class="modal-content" style="background-color:firebrick">
              <div id="header1" class="modal-header">
                  <h4 class="modal-title">Paciente ja cadastrado</h4>
              </div>
@@ -195,7 +192,7 @@
      <ajaxToolkit:ModalPopupExtender ID="OkModal" PopupControlID="PanelOk" TargetControlID="Label3"  CancelControlID="botaoOkModalFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelOk" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:green">
+         <div class="modal-content" style="background-color:forestgreen">
              <div id="header2" class="modal-header">
                  <h4 class="modal-title">Cadastrado com Sucesso!</h4>
              </div>
@@ -208,7 +205,7 @@
     <ajaxToolkit:ModalPopupExtender ID="ConfirmaModal" PopupControlID="PanelConfirmaModal" TargetControlID="Label4" CancelControlID="botaoCancelar_Cancelar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
 
     <asp:Panel runat="server" ID="PanelConfirmaModal" CssClasss="PanelErro" style="display:none;">
-         <div class="modal-content" style="background-color:green">
+         <div class="modal-content" style="background-color:forestgreen">
              <div id="header3" class="modal-header">
                  <h4 class="modal-title">Deseja excluir paciente?</h4>
                    <asp:Label id="labelNomeCOD" Text="" runat="server"></asp:Label>
@@ -225,7 +222,7 @@
 
     <ajaxToolkit:ModalPopupExtender ID="ModalEditarPaciente" PopupControlID="PanelEditarPaciente" TargetControlID="lblabel" CancelControlID="btnModalEditarFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
          <asp:Panel ID="PanelEditarPaciente" CssClasss="PanelModalInserir" style="display:none;"  runat="server">                         
-                <div class="modal-content" style="background-color:aqua">
+                <div class="modal-content" style="background-color:cornflowerblue">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Editar Paciente</h4>
                     </div>
