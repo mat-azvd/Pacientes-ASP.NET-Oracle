@@ -15,15 +15,6 @@ namespace Pacientes.Paginas
     {
 
         /// <summary>
-        /// Controle botaoModalInserirAlergia.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button botaoModalInserirAlergia;
-
-        /// <summary>
         /// Controle lblabel.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace Pacientes.Paginas
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewAlergia;
+
+        /// <summary>
+        /// Controle botaoModalInserirAlergia.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botaoModalInserirAlergia;
 
         /// <summary>
         /// Controle ModalInserirAlergia.

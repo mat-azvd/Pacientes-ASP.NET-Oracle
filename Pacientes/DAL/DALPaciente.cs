@@ -30,7 +30,7 @@ namespace Pacientes.DAL
             //DataTable para criar uma tabela
             DataTable tabela = new DataTable();
 
-            //SqlDataAdapter para executar comandos SQL passando o comando e a string de conexao
+            //OracleDataAdapter para executar comandos passando o comando e a string de conexao
             OracleDataAdapter da = new OracleDataAdapter("Select * from PACIENTES.PACIENTES", connString.ConnectionString);           
 
             try
@@ -101,8 +101,6 @@ namespace Pacientes.DAL
 
             try
             {
-
-                //Pegar o retorno do comando e preencher a tabela
                 da.Fill(tabela);
                 return tabela;
             }
@@ -350,23 +348,4 @@ namespace Pacientes.DAL
     }
 
 
-    /*
-     * cmd.Parameters.Add("ID",Convert.ToInt32(objP.ID));
-                cmd.Parameters.Add("nome", Convert.ToString(objP.nome));
-                cmd.Parameters.Add("cpf", Convert.ToString(objP.cpf));
-                cmd.Parameters.Add("sexo", Convert.ToString(objP.sexo));
-                cmd.Parameters.Add("telefone", Convert.ToString(objP.telefone));
-                cmd.Parameters.Add("email", Convert.ToString(objP.email));
-                cmd.Parameters.Add("Data_Nascimento", Convert.ToString(objP.Data_Nascimento));
-                cmd.Parameters.Add("Nome_Mae", Convert.ToString(objP.Nome_Mae));
-                cmd.Parameters.Add("Estado_Civil", Convert.ToString(objP.Estado_Civil));
-                cmd.Parameters.Add("Rua", Convert.ToString(objP.Rua));
-                cmd.Parameters.Add("Estado", Convert.ToString(objP.Estado));
-                cmd.Parameters.Add("Cidade", Convert.ToString(objP.Cidade));
-                cmd.Parameters.Add("Numero", Convert.ToString(objP.Numero));
-                cmd.Parameters.Add("Complemento", Convert.ToString(objP.Complemento));
-
-      
-    */
-    //
 }

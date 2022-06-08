@@ -316,7 +316,7 @@ namespace Pacientes.DAL
                 cmd.Connection = con;
                 con.Open();
                 obj.ID_PACIENTE = Convert.ToInt32(cmd.ExecuteScalar());
-                //obj.ID_ALERGIA = Convert.ToInt32(cmd.ExecuteScalar());
+              
             }
 
             catch (Exception erro)
@@ -369,13 +369,10 @@ namespace Pacientes.DAL
         public void DeletePacienteXAlergia(int ID)
         {
 
-            //Criar um objeto de conexão
             OracleConnection con = new OracleConnection(connString.ToString());
             OracleCommand cmd = new OracleCommand();
 
-
-
-            //Executar um comando no banco
+        
             try
             {
                 cmd.Connection = con;
@@ -409,8 +406,6 @@ namespace Pacientes.DAL
             OracleConnection con = new OracleConnection(connString.ToString());
             OracleCommand cmd = new OracleCommand();
 
-
-            //Executar um comando no banco
             try
             {
                 cmd.Connection = con;

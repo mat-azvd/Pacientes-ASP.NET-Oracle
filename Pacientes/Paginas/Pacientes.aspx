@@ -25,10 +25,12 @@
         <div id="titulo">
             <asp:Label runat="server">LOGADO</asp:Label>
         </div>     
-       
+       <br/>
+        <div>
         <asp:TextBox ID="txtPesquisa" runat="server" placeholder="Digite CPF ou Nome"></asp:TextBox>
         <asp:Button ID="btnPesquisa" runat="server" text="Pesquisar" onclick="btnPesquisar_Click" />
-
+         </div>
+        <br/>
          <div id="formTabela" >
             <asp:GridView ID="GridViewPacientes" HorizontalAlign="Center" 
                 CssClass="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;"
@@ -144,7 +146,7 @@
 
                             <tr>
                                 <td><label>Email</label></td>
-                                <td><asp:TextBox  id="txtEmail" runat="server"> </asp:TextBox>
+                                <td><asp:TextBox  id="txtEmail" runat="server" > </asp:TextBox>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="validacao1" ControlToValidate="txtEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></asp:RegularExpressionValidator>
                                 </td>
                                 <td><label>Estado Civil</label></td>
@@ -292,12 +294,12 @@
 
                             <tr>
                                 <td><label>Email</label></td>
-                                <td><asp:TextBox  id="txtEditarEmail" runat="server" Text=""> </asp:TextBox>
+                                <td><asp:TextBox  id="txtEditarEmail" runat="server" Text="" placeholder="Pendente"> </asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="validacao2" ControlToValidate="txtEditarEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></asp:RegularExpressionValidator>
                                 </td>
                                 
                                 <td><label>Estado Civil</label></td>
-                                <td><asp:TextBox  id="txtEditarEstadoCivil" runat="server" Text=""> </asp:TextBox>
+                                <td><asp:TextBox  id="txtEditarEstadoCivil" runat="server" Text="" placeholder="Pendente"> </asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator15" runat="server"  ForeColor="Red" ErrorMessage="*" ValidationExpression="^[a-zA-Z ]+$" ValidationGroup="validacao2" ControlToValidate="txtEditarEstadoCivil"></asp:RegularExpressionValidator>
                                 </td>
                                 

@@ -14,7 +14,7 @@ namespace Pacientes.Paginas
 {
     public partial class Pacientes : System.Web.UI.Page
     {
-        /*protected List<ModeloPaciente> ListaPacientes = new List<ModeloPaciente>();*/
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             AtualizaLista();
@@ -24,23 +24,11 @@ namespace Pacientes.Paginas
         {
 
             DALPaciente dal = new DALPaciente();
-            /*ListaPacientes = new List<ModeloPaciente>();
-            ListaPacientes = dal.Listar();*/
+           
             GridViewPacientes.DataSource = dal.Listar();
             GridViewPacientes.DataBind();
         }
-
-        /*protected void Button_Modal_inserir(object sender, EventArgs e)
-        {
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(@"<script language='javascript'>");
-            sb.Append(@"$('#modal-fade').modal('show');");
-            sb.Append(@"</script>");
-
-            ClientScript.RegisterStartupScript(this.GetType(), "JSScript", sb.ToString());
-
-        }
-        */
+     
 
         protected void btnPesquisar()
         {
@@ -66,24 +54,7 @@ namespace Pacientes.Paginas
         {
             string nome = Convert.ToString(txtNome.Text);
             string nome_alergia = Convert.ToString(txtAlergia.Text);
-            string cpf = Convert.ToString(txtCpf.Text);
-            /*
-            
-            string cpf = Convert.ToString(txtCpf.Text);
-            string sexo = Convert.ToString(txtSexo.Text);
-            string telefone = Convert.ToString(txtTelefone.Text);
-            string email = Convert.ToString(txtEmail.Text);
-            string data_nascimento = Convert.ToString(txtData_nascimento.Text);
-            string nome_mae = Convert.ToString(txtNome_mae.Text);
-            string alergias = Convert.ToString(txtAlergia.Text);
-            string estado_civil = Convert.ToString(txtEstado_civil.Text);
-            string rua = Convert.ToString(txtRua.Text);
-            string estado = Convert.ToString(txtEstado.Text);
-            string cidade = Convert.ToString(txtCidade.Text);
-            string numero = Convert.ToString(txtNumero.Text);
-            string complemento = Convert.ToString(txtComplemento.Text);
-            string nome = Convert.ToString(txtNome.Text);
-            */
+            string cpf = Convert.ToString(txtCpf.Text);         
 
             DALPaciente dal = new DALPaciente();
             DALalergia dal2 = new DALalergia();
@@ -155,10 +126,7 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             DALalergia dal2 = new DALalergia();
-            /*ModeloAlergia obj2 = new ModeloAlergia();
-            ModeloPaciente obj = new ModeloPaciente();
-            ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
-            */
+         
 
             ModeloPaciente objP = dal.GetRegistro(cod);
 
@@ -191,24 +159,8 @@ namespace Pacientes.Paginas
             txtEditarEstadoCivil.Text = Convert.ToString(objP.Estado_Civil);
             txtEditarMae.Text = Convert.ToString(objP.Nome_Mae);
             txtEditarAlergia.Text = Convert.ToString(objA.nome_alergia);
+                     
 
-            /*
-            
-            txtEditarNome.Text = objP.nome;
-            txtEditarCpf.Text = objP.cpf;
-            txtEditarSexo.Text = objP.sexo;
-            txtEditarNasci.Text = objP.Data_Nascimento;
-            txtEditarRua.Text = objP.Rua;
-            txtEditarNumero.Text = objP.Numero;
-            txtEditarCidade.Text = objP.Cidade;
-            txtEditarEstado.Text = objP.Estado;
-            txtEditarComplemento.Text = objP.Complemento;
-            txtEditarTelefone.Text = objP.telefone;
-            txtEditarEmail.Text = objP.email;
-            txtEditarEstadoCivil.Text = objP.Estado_Civil;
-            txtEditarMae.Text = objP.Nome_Mae;
-            txtEditarAlergia.Text = objA.nome_alergia;
-             */
 
             ModalEditarPaciente.Show();
 
@@ -221,9 +173,7 @@ namespace Pacientes.Paginas
 
             DALPaciente dal = new DALPaciente();
             DALalergia dal2 = new DALalergia();
-            //ModeloAlergia obj2 = new ModeloAlergia();
-            //ModeloPaciente obj = new ModeloPaciente();
-            //ModeloPacienteXAlergia obj3 = new ModeloPacienteXAlergia();
+       
 
             ModeloPaciente objP2 = dal.GetRegistro(cod);
 
@@ -231,16 +181,11 @@ namespace Pacientes.Paginas
 
             ModeloPacienteXAlergia objAP = dal2.GetAlergiaXPacienteID(codAP);
 
-            //int codA = objAP.ID_ALERGIA;
-
-            //ModeloAlergia objA = dal2.GetAlergiaID(codA);
 
             string nome_alergia = txtEditarAlergia.Text;
 
             ModeloAlergia novaID_Alergia = dal2.GetNovaAlergia(nome_alergia);
 
-            //string nome = txtEditarNome.Text.Trim();
-            //string cpf = txtEditarCpf.Text.Trim();
 
             objAP.ID_ALERGIA = Convert.ToInt32(novaID_Alergia.ID);
             dal2.AlterarAlergiaXPaciente(objAP);
@@ -261,22 +206,6 @@ namespace Pacientes.Paginas
             objP.Numero = Convert.ToString(txtEditarNumero.Text);
             objP.Complemento = Convert.ToString(txtEditarComplemento.Text);
 
-            /* objAP.ID_ALERGIA = Convert.ToInt32(novaID_Alergia.ID);
-            objP.ID = objP.ID;
-            objP.nome = txtEditarNome.Text;
-            objP.cpf = txtEditarCpf.Text;
-            objP.sexo = txtEditarSexo.Text;
-            objP.telefone = txtEditarTelefone.Text;
-            objP.email = txtEditarEmail.Text;
-            objP.Data_Nascimento = txtEditarNasci.Text;
-            objP.Nome_Mae = txtEditarMae.Text;
-            objP.Estado_Civil = txtEditarEstadoCivil.Text;
-            objP.Rua = txtEditarRua.Text;
-            objP.Estado = txtEditarEstado.Text;
-            objP.Cidade = txtEditarCidade.Text;
-            objP.Numero = txtEditarNumero.Text;
-            objP.Complemento = txtEditarComplemento.Text;
-            */
             dal.AlterarPaciente(objP);
             
             AtualizaLista();
@@ -318,14 +247,7 @@ namespace Pacientes.Paginas
 
 
         }
-        /*
-        protected void botaoConfirma_fechar(object sender, EventArgs e)
-        {
 
-            AtualizaLista();
-            Response.Redirect("~/Paginas/Pacientes.aspx");
-        }
-       */
 
         protected void GridViewPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -335,8 +257,94 @@ namespace Pacientes.Paginas
             GridViewPacientes.DataBind();
         }
 
-        
-        
+
+        protected void ButtonDownloadPDF_Click(object sender, EventArgs e)
+        {
+            DALPaciente dal = new DALPaciente();
+            GridViewPacientes.AllowPaging = false;
+            GridViewPacientes.DataSource = dal.Listar();
+            GridViewPacientes.DataBind();
+
+            int numColunas = GridViewPacientes.HeaderRow.Cells.Count - 2;
+
+            PdfPTable pdfTable = new PdfPTable(numColunas);
+
+            foreach (TableCell gridViewHeaderCell in GridViewPacientes.HeaderRow.Cells)
+            {
+                if (gridViewHeaderCell.Text == "Nome" || gridViewHeaderCell.Text == "CPF")
+                {
+
+                    // Criar objeto fonte para o PDF
+                    Font font = new Font();
+
+                    // Mudar a cor do header da Grindview
+                    font.Color = new BaseColor(GridViewPacientes.HeaderStyle.ForeColor);
+
+                    // Criar cada celula do pdf passando o texto e a fonte
+                    PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewHeaderCell.Text, font));
+
+                    // Cor do background da grindview
+                    pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.HeaderStyle.BackColor);
+
+                    // Adicionar as celulas na tabela de PDF
+                    pdfTable.AddCell(pdfCell);
+                }
+            }
+
+            foreach (GridViewRow gridViewRow in GridViewPacientes.Rows)
+            {
+                if (gridViewRow.RowType == DataControlRowType.DataRow)
+                {
+                    // Loop por cada celula das linhas da Grindview
+                    foreach (TableCell gridViewCell in gridViewRow.Cells)
+                    {
+                        Font font = new Font();
+
+                        PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewCell.Text, font));
+
+                        pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.RowStyle.BackColor);
+
+                        pdfTable.AddCell(pdfCell);
+                    }
+                }
+            }
+
+            Document pdfDocumento = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+
+            PdfWriter.GetInstance(pdfDocumento, Response.OutputStream);
+
+            pdfDocumento.Open();
+            pdfDocumento.AddTitle("Nome");
+            pdfDocumento.Add(pdfTable);
+            pdfDocumento.Close();
+
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("content-disposition", "attachment;filename=Lista_de_Pacientes.pdf");
+            Response.Write(pdfDocumento);
+            Response.Flush();
+            Response.End();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
@@ -376,75 +384,7 @@ namespace Pacientes.Paginas
             txtAlergia.DataSource = dal.ListarAlergias();
             txtAlergia.DataBind();
             */
-        }
-
-
-        protected void ButtonDownloadPDF_Click(object sender, EventArgs e)
-        {
-            DALPaciente dal = new DALPaciente();
-            GridViewPacientes.AllowPaging = false;           
-            GridViewPacientes.DataSource = dal.Listar();
-            GridViewPacientes.DataBind();         
-
-            int numColunas = GridViewPacientes.HeaderRow.Cells.Count-2;
-
-            PdfPTable pdfTable = new PdfPTable(numColunas);          
-
-            foreach (TableCell gridViewHeaderCell in GridViewPacientes.HeaderRow.Cells)
-            {
-                if (gridViewHeaderCell.Text == "Nome" || gridViewHeaderCell.Text == "CPF")
-                { 
-
-                // Criar objeto fonte para o PDF
-                Font font = new Font();
-
-                // Mudar a cor do header da Grindview
-                font.Color = new BaseColor(GridViewPacientes.HeaderStyle.ForeColor);
-
-                // Criar cada celula do pdf passando o texto e a fonte
-                PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewHeaderCell.Text, font));
-
-                // Cor do background da grindview
-                pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.HeaderStyle.BackColor);
-
-                // Adicionar as celulas na tabela de PDF
-                pdfTable.AddCell(pdfCell);
-                }  
-            }
-
-            foreach (GridViewRow gridViewRow in GridViewPacientes.Rows)
-            {
-                if (gridViewRow.RowType == DataControlRowType.DataRow)
-                {
-                    // Loop por cada celula das linhas da Grindview
-                    foreach (TableCell gridViewCell in gridViewRow.Cells)
-                    {
-                        Font font = new Font();
-
-                        PdfPCell pdfCell = new PdfPCell(new Phrase(gridViewCell.Text, font));
-
-                        pdfCell.BackgroundColor = new BaseColor(GridViewPacientes.RowStyle.BackColor);
-
-                        pdfTable.AddCell(pdfCell);
-                    }
-                }
-            }
-
-            Document pdfDocumento = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
-
-            PdfWriter.GetInstance(pdfDocumento, Response.OutputStream);                      
-
-            pdfDocumento.Open();
-            pdfDocumento.AddTitle("Nome");
-            pdfDocumento.Add(pdfTable);
-            pdfDocumento.Close();
-
-            Response.ContentType = "application/pdf";
-            Response.AppendHeader("content-disposition", "attachment;filename=Lista_de_Pacientes.pdf");
-            Response.Write(pdfDocumento);
-            Response.Flush();
-            Response.End();
-        }
+        }     
 
 
     }

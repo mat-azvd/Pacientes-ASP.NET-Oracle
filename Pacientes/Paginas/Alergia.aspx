@@ -15,9 +15,10 @@
 
 
      <asp:Panel HorizontalAlign="center" runat="server">
+         <br/>
+         <br/>
           <div>                    
-            <asp:Button ID="botaoModalInserirAlergia" class="btn btn-primary" OnClick="botaoModalInserirAlergia_Abrir" runat="server" text="Nova Alergia"/>
-            <br/>
+      
               <asp:Label ID="lblabel" runat="server" Text=""></asp:Label>
               <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
               <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
@@ -45,7 +46,10 @@
                 <PagerStyle BackColor="white" ForeColor="black"  HorizontalAlign="Center"  />
       
             </asp:GridView>
-       
+         <div>
+        <asp:Button ID="botaoModalInserirAlergia" class="btn btn-primary" OnClick="botaoModalInserirAlergia_Abrir" runat="server" text="Nova Alergia"/>
+            <br/>
+             </div>
     <%--
         <div id="tabela" class="divTabela" > 
             <table class="table table-bordered border-3 overflow-scroll w-75 text-center align-self-center" style="margin-left:auto; margin-right:auto;" >
