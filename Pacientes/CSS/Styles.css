@@ -5,11 +5,11 @@
     margin: auto;
     margin-top: 30px;
     padding: 0.6em;
-    background-color: black;
+    background-color:chocolate;
 }
 
 .botoesMenu {
-    color: black;
+    color: white;
     padding: 0.6em;
 }
 
@@ -31,6 +31,14 @@
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     white-space: nowrap;
+}
+.sumary {
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    justify-items: center;
+    color:red;
+    background-color:white;
 }
 
 .divTabela {

@@ -114,6 +114,16 @@ namespace Pacientes.Paginas
            
         }
 
+        protected void GridViewAlergias_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DALalergia dal = new DALalergia();
+            GridViewAlergia.PageIndex = e.NewPageIndex;
+            GridViewAlergia.DataSource = dal.ListaDeAlergias();
+            GridViewAlergia.DataBind();
+        }
+
+        
+
         protected void botaoOk_Fechar1(object sender, EventArgs e)
         {
 

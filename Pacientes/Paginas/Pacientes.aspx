@@ -75,7 +75,7 @@
     
 
          <ajaxToolkit:ModalPopupExtender ID="modalInserir" PopupControlID="PanelModalInserir" TargetControlID="lblabel" CancelControlID="botaoModalFechar1" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
-         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir" style="display:none;" runat="server">       <%--  --%>                  
+         <asp:Panel ID="PanelModalInserir" CssClasss="PanelModalInserir"  style="display:none;" runat="server">       <%--  --%>                  
                 <div class="modal-content" style="background-color:aqua">
                     <div class="modal-header">                  
                         <h4 class="modal-title">Modal Header</h4>
@@ -175,7 +175,9 @@
                     </div>
                     
                 </div> 
-             <asp:ValidationSummary ID="ValidationSummary3" runat="server" ValidationGroup="validacao1" DisplayMode="List"/>
+             <div style="display:flex ;align-content:center">
+                <asp:ValidationSummary ID="ValidationSummary3" runat="server" ValidationGroup="validacao1" DisplayMode="List" CssClass="sumary"/>
+             </div>
        </asp:Panel> 
     
     <ajaxToolkit:ModalPopupExtender ID="ErroModal" PopupControlID="PanelErro" TargetControlID="Label2" CancelControlID="botaoModalErroFechar" runat="server" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>

@@ -32,6 +32,7 @@
                 OnRowDeleting="GridViewAlergia_RowDeleting" 
                 BackColor="White" BorderColor="black" BorderStyle="Solid" 
                 BorderWidth="1px" CellPadding="15" ForeColor="Black" 
+                OnPageIndexChanging="GridViewAlergias_PageIndexChanging"
                 GridLines="Both" AllowPaging="True" 
                 
                PageSize="4" >
