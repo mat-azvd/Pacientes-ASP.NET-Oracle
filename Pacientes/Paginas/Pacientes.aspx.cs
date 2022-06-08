@@ -338,15 +338,6 @@ namespace Pacientes.Paginas
 
 
 
-
-
-
-
-
-
-
-
-
         protected void txtEstado_SelectedIndexChanged1(object sender, EventArgs e)
         {
             /*DALPaciente dal = new DALPaciente();

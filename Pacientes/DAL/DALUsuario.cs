@@ -99,9 +99,12 @@ namespace Pacientes.DAL
                 throw new Exception(erro.Message);
             }
 
+            finally
+            {
+                con.Close();
+            }
 
 
-         
             return obj;
         }
 
@@ -149,7 +152,10 @@ namespace Pacientes.DAL
                 throw new Exception(erro.Message);
             }
 
-
+            finally
+            {
+                con.Close();
+            }
 
 
             return obj;
